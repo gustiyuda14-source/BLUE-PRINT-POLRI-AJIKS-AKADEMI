@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blueprint — D AJIKS AKADEMI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&display=swap');
+
+    :root {
+      --navy:    #0B1D3A;
+      --navy2:   #132847;
+      --gold:    #C9993A;
+      --gold2:   #E8B84B;
+      --white:   #FFFFFF;
+      --off:     #F4F6FA;
+      --muted:   #8A96A8;
+      --border:  #D8DDE6;
+      --text:    #1A2333;
+      --sub:     #4A5568;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy2) 60%, #1a3a6b 100%);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,153,58,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      border-radius: 50%;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,153,58,0.08) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      border-radius: 50%;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      border: 1.5px solid var(--gold);
+      color: var(--gold2);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 32px;
+      position: relative; z-index: 1;
+    }
+
+    .cover-logo-ring {
+      width: 100px; height: 100px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      position: relative; z-index: 1;
+      background: rgba(201,153,58,0.08);
+    }
+    .cover-logo-ring span {
+      font-size: 36px;
+    }
+
+    .cover h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      position: relative; z-index: 1;
+      margin-bottom: 6px;
+    }
+    .cover h1 em {
+      color: var(--gold2);
+      font-style: normal;
+    }
+    .cover-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+      margin-bottom: 40px;
+      position: relative; z-index: 1;
+      letter-spacing: 1px;
+    }
+
+    .cover-pillars {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+      position: relative; z-index: 1;
+      margin-bottom: 48px;
+    }
+    .cover-pillar {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 16px 24px;
+      min-width: 130px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+    .cover-pillar .icon { font-size: 24px; margin-bottom: 8px; }
+    .cover-pillar .label { font-size: 12px; font-weight: 600; color: var(--gold2); letter-spacing: 1px; text-transform: uppercase; }
+
+    .cover-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 20px;
+      position: relative; z-index: 1;
+    }
+
+    .cover-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      position: relative; z-index: 1;
+      letter-spacing: 1px;
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-top: 64px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--sub);
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 620px;
+    }
+
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 4px 24px rgba(11,29,58,0.08); }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--sub);
+      line-height: 1.6;
+    }
+    .card .tag {
+      display: inline-block;
+      background: var(--off);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(201,153,58,0.15) 0%, transparent 70%);
+      top: -80px; right: -60px;
+      border-radius: 50%;
+    }
+    .highlight h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--gold2);
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .highlight p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      position: relative; z-index: 1;
+      line-height: 1.8;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead tr {
+      background: var(--navy);
+      color: var(--white);
+    }
+    thead th {
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--off); }
+    tbody td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--text);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 600; color: var(--navy); }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .badge-high   { background: #FEF3C7; color: #92400E; }
+    .badge-med    { background: #DBEAFE; color: #1E40AF; }
+    .badge-green  { background: #D1FAE5; color: #065F46; }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 640px) {
+      .timeline-grid { grid-template-columns: 1fr; }
+    }
+    .tl-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-right: none;
+      padding: 28px 24px;
+      position: relative;
+    }
+    .tl-item:last-child { border-right: 1px solid var(--border); }
+    .tl-item:first-child { border-radius: 16px 0 0 16px; }
+    .tl-item:last-child  { border-radius: 0 16px 16px 0; }
+    .tl-month {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .tl-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .tl-list {
+      list-style: none;
+    }
+    .tl-list li {
+      font-size: 13px;
+      color: var(--sub);
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .tl-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── FLOW CHART ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .flow-step {
+      flex: 1;
+      min-width: 120px;
+      padding: 20px 16px;
+      text-align: center;
+      position: relative;
+      background: var(--white);
+    }
+    .flow-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 18px;
+      z-index: 2;
+    }
+    .flow-step:nth-child(odd) { background: var(--off); }
+    .flow-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px;
+    }
+    .flow-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+    .flow-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── SOP BLOCK ── */
+    .sop-block {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .sop-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      border-top: 3px solid var(--navy);
+    }
+    .sop-card.gold { border-top-color: var(--gold); }
+    .sop-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sop-steps {
+      counter-reset: sop;
+      list-style: none;
+    }
+    .sop-steps li {
+      counter-increment: sop;
+      font-size: 13px;
+      color: var(--sub);
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px dashed var(--border);
+      position: relative;
+      line-height: 1.5;
+    }
+    .sop-steps li:last-child { border-bottom: none; }
+    .sop-steps li::before {
+      content: counter(sop);
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 18px; height: 18px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── KPI ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .kpi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .kpi-card.accent {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-color: transparent;
+    }
+    .kpi-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--gold2);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .kpi-label {
+      font-size: 12px;
+      color: var(--sub);
+      font-weight: 500;
+    }
+    .kpi-card.accent .kpi-label { color: rgba(255,255,255,0.6); }
+
+    /* ── PLATFORM ── */
+    .platform-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .platform-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .platform-icon {
+      width: 40px; height: 40px;
+      background: var(--off);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .platform-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .platform-info p {
+      font-size: 12px;
+      color: var(--sub);
+      line-height: 1.5;
+    }
+
+    /* ── QUOTE ── */
+    .quote-block {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 16px 16px 0;
+      padding: 28px 32px;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--sub);
+      line-height: 1.8;
+    }
+    .quote-block strong { color: var(--navy); font-style: normal; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 13px;
+      margin-top: 80px;
+    }
+    .footer strong { color: var(--gold2); }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; font-size: 13px; }
+      .cover { min-height: auto; padding: 60px 40px; page-break-after: always; }
+      .section { page-break-inside: avoid; }
+      .timeline-grid { grid-template-columns: repeat(3,1fr); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .cover h1 { font-size: 32px; }
+      .cover-pillars { gap: 10px; }
+      .cover-pillar { min-width: 100px; padding: 12px 16px; }
+      .flow { flex-direction: column; }
+      .flow-step::after { display: none; }
+      .tl-item { border-radius: 0; border-right: 1px solid var(--border); border-bottom: none; }
+      .tl-item:first-child { border-radius: 16px 16px 0 0; }
+      .tl-item:last-child { border-radius: 0 0 16px 16px; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Program Blueprint 2026</div>
+  <div class="cover-logo-ring"><span>🎖️</span></div>
+  <h1><em>D AJIKS</em><br>AKADEMI</h1>
+  <p class="cover-sub">Bimbingan Belajar Seleksi POLRI — Bintara · Tamtama · AKPOL</p>
+  <div class="cover-divider"></div>
+  <div class="cover-pillars">
+    <div class="cover-pillar">
+      <div class="icon">📚</div>
+      <div class="label">Akademik</div>
+    </div>
+    <div class="cover-pillar">
+      <div class="icon">🏃</div>
+      <div class="label">Jasmani</div>
+    </div>
+    <div class="cover-pillar">
+      <div class="icon">🧠</div>
+      <div class="label">Psikologi</div>
+    </div>
+    <div class="cover-pillar">
+      <div class="icon">🎯</div>
+      <div class="label">Mental</div>
+    </div>
+  </div>
+  <p class="cover-meta">Dokumen Internal · Versi 1.0 · Juni 2026</p>
+</div>
+
+<!-- ═══════════════════════════════ CONTENT ═══════════════════════════════ -->
+<div class="wrapper">
+
+  <!-- BAGIAN 1 — VISI -->
+  <div class="section">
+    <p class="section-label">01 — Visi Program</p>
+    <h2 class="section-title">Bukan sekadar lulus.<br>Tapi layak lulus.</h2>
+    <div class="divider"></div>
+    <div class="highlight">
+      <h3>Filosofi D AJIKS AKADEMI</h3>
+      <p>
+        Seleksi POLRI tidak hanya menyaring yang paling pintar atau paling kuat — ia menyaring yang <strong style="color:#E8B84B">paling siap secara menyeluruh.</strong>
+        Program ini dibangun untuk menjawab semua dimensi itu. Setiap peserta diperlakukan sebagai individu dengan titik awal yang berbeda,
+        bukan kelas massal yang seragam. Yang keluar dari program ini bukan hanya yang "lolos seleksi" —
+        tapi yang sudah punya <strong style="color:#E8B84B">karakter, disiplin, dan kesiapan mental</strong> yang memang layak menjadi anggota Polri.
+      </p>
+    </div>
+  </div>
+
+  <!-- BAGIAN 2 — JALUR -->
+  <div class="section">
+    <p class="section-label">02 — Jalur & Target Peserta</p>
+    <h2 class="section-title">Program tersedia untuk<br>semua jalur masuk.</h2>
+    <div class="divider"></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Jalur</th>
+            <th>Target Peserta</th>
+            <th>Durasi Ideal</th>
+            <th>Prioritas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tamtama</td>
+            <td>Lulusan SMP/SMA, usia 17–21 tahun</td>
+            <td>3 bulan</td>
+            <td><span class="badge badge-med">Fisik & Administrasi</span></td>
+          </tr>
+          <tr>
+            <td>Bintara</td>
+            <td>Lulusan SMA/sederajat, usia 17–21 tahun</td>
+            <td>4–6 bulan</td>
+            <td><span class="badge badge-high">Akademik + Fisik</span></td>
+          </tr>
+          <tr>
+            <td>AKPOL</td>
+            <td>Lulusan SMA nilai tinggi, usia 17–21 tahun</td>
+            <td>6–8 bulan</td>
+            <td><span class="badge badge-high">Akademik + Psikologi</span></td>
+          </tr>
+          <tr>
+            <td>SIPSS</td>
+            <td>Sarjana S1/S2 profesi tertentu</td>
+            <td>3 bulan</td>
+            <td><span class="badge badge-green">Psikologi & Wawancara</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BAGIAN 3 — TAHAPAN SELEKSI -->
+  <div class="section">
+    <p class="section-label">03 — Acuan Kurikulum</p>
+    <h2 class="section-title">Tahapan seleksi resmi<br>sebagai kompas program.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Sistem seleksi POLRI bersifat <strong>gugur bertahap</strong>. Gagal di satu tahap, selesai. Tidak ada pengulangan. Ini yang membuat program harus benar-benar komprehensif.</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-label">Administrasi</div>
+        <div class="flow-sub">Berkas & verifikasi</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-label">Kesehatan</div>
+        <div class="flow-sub">Kes I & II</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-label">Psikologi</div>
+        <div class="flow-sub">CAT Psikologi</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-label">Akademik</div>
+        <div class="flow-sub">CAT Komputer</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-label">Kesamaptaan</div>
+        <div class="flow-sub">Tes Fisik</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">6</div>
+        <div class="flow-label">Pantukhir</div>
+        <div class="flow-sub">Sidang akhir</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 4 — AKADEMIK -->
+  <div class="section">
+    <p class="section-label">04 — Kurikulum Akademik</p>
+    <h2 class="section-title">Materi yang relevan,<br>bukan yang sekadar banyak.</h2>
+    <div class="divider"></div>
+    <div class="table-wrap" style="margin-bottom:24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Mata Pelajaran</th>
+            <th>Bobot</th>
+            <th>Topik Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Matematika Dasar</td>
+            <td><span class="badge badge-high">Tinggi</span></td>
+            <td>Operasi bilangan, persentase, logika numerik, aljabar dasar</td>
+          </tr>
+          <tr>
+            <td>Bahasa Indonesia</td>
+            <td><span class="badge badge-high">Tinggi</span></td>
+            <td>EYD, sinonim/antonim, pemahaman wacana, kalimat efektif</td>
+          </tr>
+          <tr>
+            <td>Wawasan Kebangsaan</td>
+            <td><span class="badge badge-high">Tinggi</span></td>
+            <td>Pancasila, UUD 1945, NKRI, sejarah perjuangan, Bhinneka</td>
+          </tr>
+          <tr>
+            <td>Pengetahuan Umum</td>
+            <td><span class="badge badge-med">Sedang</span></td>
+            <td>Current affairs, UU Kepolisian, hukum dasar Indonesia</td>
+          </tr>
+          <tr>
+            <td>Bahasa Inggris</td>
+            <td><span class="badge badge-med">Sedang</span></td>
+            <td>Vocabulary, reading comprehension, tata bahasa dasar</td>
+          </tr>
+          <tr>
+            <td>TPA / Logika</td>
+            <td><span class="badge badge-high">Tinggi</span></td>
+            <td>Pola gambar, analogi, silogisme, deret angka/huruf</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <h3>Struktur Sesi (2 Jam)</h3>
+        <p>15 mnt recap · 60 mnt materi baru · 30 mnt latihan mandiri · 15 mnt pembahasan & identifikasi titik lemah</p>
+        <span class="tag">Setiap Pertemuan</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Simulasi CAT</h3>
+        <p>Minimal 2× tryout penuh per minggu berbasis komputer. Format, timing, dan tekanan identik dengan tes sesungguhnya.</p>
+        <span class="tag">2× / Minggu</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Tracking Individual</h3>
+        <p>Setiap peserta punya profil kelebihan dan titik lemah. Materi tambahan diberikan berdasarkan data, bukan asumsi.</p>
+        <span class="tag">Per Peserta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 5 — JASMANI -->
+  <div class="section">
+    <p class="section-label">05 — Program Jasmani</p>
+    <h2 class="section-title">Fisik dibangun bertahap,<br>bukan dipaksakan instan.</h2>
+    <div class="divider"></div>
+
+    <div class="table-wrap" style="margin-bottom:32px">
+      <table>
+        <thead>
+          <tr>
+            <th>Komponen</th>
+            <th>Standar Pria</th>
+            <th>Standar Wanita</th>
+            <th>Target Bimbel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lari 12 Menit</td>
+            <td>≥ 2.400 meter</td>
+            <td>≥ 1.800 meter</td>
+            <td><span class="badge badge-green">Nilai 70+</span></td>
+          </tr>
+          <tr>
+            <td>Pull-Up</td>
+            <td>≥ 10 kali</td>
+            <td>≥ 5 kali (modif.)</td>
+            <td><span class="badge badge-green">Nilai 70+</span></td>
+          </tr>
+          <tr>
+            <td>Push-Up (1 menit)</td>
+            <td>≥ 40 kali</td>
+            <td>≥ 25 kali</td>
+            <td><span class="badge badge-green">Nilai 70+</span></td>
+          </tr>
+          <tr>
+            <td>Sit-Up (1 menit)</td>
+            <td>≥ 40 kali</td>
+            <td>≥ 35 kali</td>
+            <td><span class="badge badge-green">Nilai 70+</span></td>
+          </tr>
+          <tr>
+            <td>Renang</td>
+            <td>Gaya bebas, jarak pendek</td>
+            <td>Sama</td>
+            <td><span class="badge badge-green">Lulus</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Fase 1 — Fondasi</h3>
+        <p>Minggu 1–4. Membangun endurance dasar, perbaiki teknik gerakan. Volume rendah, intensitas sedang. Deteksi kondisi awal tiap peserta.</p>
+        <span class="tag">Wk 1–4</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Fase 2 — Pembangunan</h3>
+        <p>Minggu 5–10. Volume meningkat bertahap. Latihan sirkuit gabungan. Tes internal tiap 2 minggu dengan tracking individual.</p>
+        <span class="tag">Wk 5–10</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Fase 3 — Peak & Simulasi</h3>
+        <p>Minggu 11–16. Simulasi kesamaptaan penuh. Pemulihan aktif menjelang tes. Mental coaching untuk performa hari-H.</p>
+        <span class="tag">Wk 11–16</span>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;" class="card">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--navy)">📅 Jadwal Latihan Mingguan</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;">
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Senin</div>
+          <div style="font-size:11px;color:var(--sub)">Lari + Sit-up / Push-up</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Selasa</div>
+          <div style="font-size:11px;color:var(--sub)">Akademik + Pull-up & Core</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Rabu</div>
+          <div style="font-size:11px;color:var(--sub)">Renang / Teknis</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Kamis</div>
+          <div style="font-size:11px;color:var(--sub)">Akademik + Sprint & Agility</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Jumat</div>
+          <div style="font-size:11px;color:var(--sub)">Latihan Gabungan Simulasi</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Sabtu</div>
+          <div style="font-size:11px;color:var(--sub)">Full Tryout + Evaluasi</div>
+        </div>
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+          <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Minggu</div>
+          <div style="font-size:11px;color:var(--sub)">Pemulihan Aktif</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 6 — PSIKOLOGI -->
+  <div class="section">
+    <p class="section-label">06 — Persiapan Psikologi</p>
+    <h2 class="section-title">Psikologi tidak bisa dipoles.<br>Harus dibentuk.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Ini bagian yang paling sering diabaikan, padahal banyak peserta gugur justru di tahap ini. Berbeda dengan akademik yang bisa dilatih, psikologi menuntut pembentukan karakter yang genuine.</p>
+
+    <div class="table-wrap" style="margin-bottom:28px">
+      <table>
+        <thead>
+          <tr>
+            <th>Jenis Tes</th>
+            <th>Apa yang Diukur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tes Inteligensi</td>
+            <td>Kemampuan berpikir logis, numerik, verbal — kecepatan dan ketepatan</td>
+          </tr>
+          <tr>
+            <td>Tes Kepribadian</td>
+            <td>Kestabilan emosi, integritas, dominansi, cara menghadapi tekanan</td>
+          </tr>
+          <tr>
+            <td>Tes Proyektif</td>
+            <td>Gambar orang, pohon, HTP — menggali karakter bawah sadar</td>
+          </tr>
+          <tr>
+            <td>Tes Sikap & Nilai</td>
+            <td>Kejujuran, kedisiplinan, pro-sosial, orientasi pada tugas</td>
+          </tr>
+          <tr>
+            <td>Wawancara Psikologi</td>
+            <td>Konsistensi jawaban, kejujuran, motivasi bergabung POLRI</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🪞</div>
+        <h3>Bulan 1 — Kenali Diri</h3>
+        <p>Baseline kepribadian, nilai hidup, identifikasi kekuatan & kelemahan karakter. Bukan menilai — tapi memetakan.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Bulan 2 — Latihan Psikotes</h3>
+        <p>Simulasi CAT psikologi, latihan soal inteligensi, proyektif dan kepribadian secara rutin dan terbimbing.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎤</div>
+        <h3>Bulan 3 — Narasi Personal</h3>
+        <p>Role-play wawancara, membangun konsistensi cerita personal yang jujur dan kuat. Latihan respon pertanyaan penggali.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💪</div>
+        <h3>Bulan 4+ — Mental Kuat</h3>
+        <p>Manajemen stres & kecemasan tes, teknik pernapasan, pengelolaan ekspektasi dan ketakutan gagal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 7 — TIMELINE -->
+  <div class="section">
+    <p class="section-label">07 — Roadmap Belajar</p>
+    <h2 class="section-title">Enam bulan yang<br>terstruktur dan terukur.</h2>
+    <div class="divider"></div>
+    <div class="timeline-grid">
+      <div class="tl-item" style="border-radius:16px 0 0 16px;">
+        <div class="tl-month">Bulan 1–2</div>
+        <div class="tl-title">Baseline & Fondasi</div>
+        <ul class="tl-list">
+          <li>Tes pemetaan awal akademik</li>
+          <li>Baseline fisik tiap peserta</li>
+          <li>Profil kepribadian awal</li>
+          <li>Materi akademik inti dimulai</li>
+          <li>Fisik fase 1 (endurance dasar)</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-month">Bulan 3–4</div>
+        <div class="tl-title">Intensifikasi</div>
+        <ul class="tl-list">
+          <li>Full tryout mingguan (CAT)</li>
+          <li>Simulasi kesamaptaan parsial</li>
+          <li>Wawancara simulasi pertama</li>
+          <li>Fisik fase 2 & 3</li>
+          <li>Soal-soal level tinggi</li>
+        </ul>
+      </div>
+      <div class="tl-item" style="border-radius:0 16px 16px 0; border-right:1px solid var(--border);">
+        <div class="tl-month">Bulan 5–6</div>
+        <div class="tl-title">Final Polish</div>
+        <ul class="tl-list">
+          <li>Review titik lemah individual</li>
+          <li>Simulasi penuh H-2 minggu</li>
+          <li>Mental preparation intensif</li>
+          <li>Nutrisi & recovery terjadwal</li>
+          <li>Briefing strategi hari-H</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 8 — SOP -->
+  <div class="section">
+    <p class="section-label">08 — SOP Operasional</p>
+    <h2 class="section-title">Sistem yang berjalan<br>tanpa harus diingatkan.</h2>
+    <div class="divider"></div>
+    <div class="sop-block">
+      <div class="sop-card">
+        <h4>📋 Penerimaan Peserta Baru</h4>
+        <ol class="sop-steps">
+          <li>Pendaftaran & pengumpulan berkas</li>
+          <li>Tes pemetaan awal (akademik + fisik + psikologi)</li>
+          <li>Penentuan jalur & kelas sesuai level</li>
+          <li>Briefing orang tua / wali</li>
+          <li>Orientasi & kontrak belajar</li>
+        </ol>
+      </div>
+      <div class="sop-card gold">
+        <h4>📆 Sesi Harian</h4>
+        <ol class="sop-steps">
+          <li>Absensi wajib (alpha maks 15%)</li>
+          <li>Sesi diawali recap, diakhiri evaluasi</li>
+          <li>Instruktur isi logbook harian per peserta</li>
+          <li>Keterlambatan &gt;15 menit = alpha</li>
+          <li>Koordinasi tim setelah sesi selesai</li>
+        </ol>
+      </div>
+      <div class="sop-card">
+        <h4>📊 Evaluasi & Monitoring</h4>
+        <ol class="sop-steps">
+          <li>Mini tryout + ukur fisik tiap minggu</li>
+          <li>Progress report ke peserta (2 mingguan)</li>
+          <li>Laporan lengkap ke orang tua (bulanan)</li>
+          <li>Tes simulasi penuh tiap akhir fase</li>
+          <li>Konseling bila stagnan 2 minggu berturut</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 9 — WORKFLOW INSTRUKTUR -->
+  <div class="section">
+    <p class="section-label">09 — Workflow Instruktur</p>
+    <h2 class="section-title">Sebelum, saat, dan setelah<br>setiap sesi.</h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <div class="card" style="border-top:3px solid #C9993A;">
+        <div class="card-icon">🌅</div>
+        <h3>Sebelum Sesi</h3>
+        <p style="font-size:13px;color:var(--sub)">
+          ✓ Review logbook peserta kemarin<br>
+          ✓ Siapkan materi & soal latihan<br>
+          ✓ Cek kondisi fisik lapangan<br>
+          ✓ Koordinasi dengan tim jika ada kasus khusus
+        </p>
+      </div>
+      <div class="card" style="border-top:3px solid #0B1D3A;">
+        <div class="card-icon">🎯</div>
+        <h3>Saat Sesi</h3>
+        <p style="font-size:13px;color:var(--sub)">
+          ✓ Recap 15 menit pembuka<br>
+          ✓ Monitor tiap peserta secara individual<br>
+          ✓ Responsif terhadap pertanyaan<br>
+          ✓ Catat nama peserta yang perlu tindak lanjut
+        </p>
+      </div>
+      <div class="card" style="border-top:3px solid #C9993A;">
+        <div class="card-icon">🌇</div>
+        <h3>Setelah Sesi</h3>
+        <p style="font-size:13px;color:var(--sub)">
+          ✓ Isi logbook harian per peserta<br>
+          ✓ Flag peserta yang perlu perhatian<br>
+          ✓ Update tracker progress<br>
+          ✓ Koordinasi dengan tim / psikolog jika perlu
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 10 — STRUKTUR TIM -->
+  <div class="section">
+    <p class="section-label">10 — Struktur Tim</p>
+    <h2 class="section-title">Tim yang proporsional<br>dan fungsional.</h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h3>Program Director</h3>
+        <p>Penanggung jawab keseluruhan program. Mengawasi kurikulum, output, dan standar kualitas.</p>
+        <span class="tag">1 orang</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Koordinator Akademik</h3>
+        <p>Mengelola jadwal & materi. Membawahi instruktur mapel dan memastikan kurikulum berjalan sesuai target.</p>
+        <span class="tag">1 + 3–5 instruktur</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏃</div>
+        <h3>Koordinator Jasmani</h3>
+        <p>Merancang periodisasi latihan, memantau progress fisik individual, dan menangani pencegahan cedera.</p>
+        <span class="tag">1 + 1–2 pelatih</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>Psikolog / Konselor</h3>
+        <p>Mengelola program psikologi dan mental coaching. Bisa mitra eksternal dengan minimal 1 sesi intensif per minggu.</p>
+        <span class="tag">Min. 1 orang</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Admin & Monitoring</h3>
+        <p>Tracking progress peserta, komunikasi dengan orang tua, laporan berkala, dan administrasi operasional.</p>
+        <span class="tag">1–2 orang</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 11 — PLATFORM -->
+  <div class="section">
+    <p class="section-label">11 — Platform & Tools</p>
+    <h2 class="section-title">Ekosistem digital yang<br>mendukung, bukan menggantikan.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Platform eksternal digunakan sebagai suplemen belajar mandiri. Tools internal dibangun untuk monitoring dan komunikasi yang lebih personal.</p>
+
+    <div style="margin-bottom:20px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Platform Referensi</div>
+    <div class="platform-list" style="margin-bottom:32px">
+      <div class="platform-item">
+        <div class="platform-icon">🎯</div>
+        <div class="platform-info">
+          <h4>TacticalInPolice</h4>
+          <p>Bank soal CAT & kalkulator nilai jasmani. Dipakai untuk tryout tambahan mandiri peserta.</p>
+        </div>
+      </div>
+      <div class="platform-item">
+        <div class="platform-icon">📖</div>
+        <div class="platform-info">
+          <h4>JadiCasis / Ruang Casis</h4>
+          <p>Materi video & psikotes online. Dipakai untuk belajar mandiri di luar jam kelas.</p>
+        </div>
+      </div>
+      <div class="platform-item">
+        <div class="platform-icon">📱</div>
+        <div class="platform-info">
+          <h4>Apta School</h4>
+          <p>Paket online fleksibel dan tryout murah. Suplemen antara sesi kelas offline.</p>
+        </div>
+      </div>
+      <div class="platform-item">
+        <div class="platform-icon">🏫</div>
+        <div class="platform-info">
+          <h4>Taruna Persada</h4>
+          <p>Benchmark model hybrid offline-online. Referensi standar program nasional.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Tools Internal D AJIKS AKADEMI</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Tracking Peserta</h3>
+        <p>Spreadsheet / Notion per peserta. Dashboard progress individual dan per angkatan. Update mingguan oleh instruktur.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Komunikasi</h3>
+        <p>WhatsApp Group per angkatan. Broadcast info & jadwal. Laporan PDF bulanan ke orang tua.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📄</div>
+        <h3>Konten Materi</h3>
+        <p>Modul cetak ringkas per mata pelajaran. Video recap pendek. Bank soal update tiap siklus.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 12 — KPI -->
+  <div class="section">
+    <p class="section-label">12 — Ukuran Keberhasilan</p>
+    <h2 class="section-title">Yang tidak terukur<br>tidak akan terkelola.</h2>
+    <div class="divider"></div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-num">90%</div>
+        <div class="kpi-label">Tingkat kehadiran per angkatan</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">75+</div>
+        <div class="kpi-label">Nilai rata-rata CAT simulasi akhir</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">70+</div>
+        <div class="kpi-label">Nilai jasmani simulasi (kategori Baik)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">80%</div>
+        <div class="kpi-label">Lulus simulasi psikotes internal</div>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-num">70%</div>
+        <div class="kpi-label">Angka lolos seleksi resmi peserta aktif</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PENUTUP -->
+  <div class="section">
+    <div class="quote-block">
+      Program terbaik bukan yang paling ramai atau paling mahal. Tapi yang <strong>paling jujur pada prosesnya</strong> —
+      yang tahu persis di mana titik lemah tiap peserta, dan punya sistem nyata untuk mengangkatnya.
+      D AJIKS AKADEMI dibangun di atas prinsip itu.
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<div class="footer">
+  <strong>D AJIKS AKADEMI</strong> &nbsp;·&nbsp; Blueprint Program Seleksi POLRI<br>
+  <span style="font-size:12px;margin-top:6px;display:block">Dokumen Internal · Versi 1.0 · Juni 2026 · Untuk keperluan operasional dan presentasi</span>
+</div>
+
+</body>
+</html>
