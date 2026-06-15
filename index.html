@@ -357,6 +357,56 @@
       line-height: 1.8;
     }
 
+    /* ── METHOD CARDS (Metode Unggulan) ── */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .method-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,153,58,0.25);
+    }
+    .method-card::before {
+      content: '';
+      position: absolute;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(201,153,58,0.16) 0%, transparent 70%);
+      top: -70px; right: -50px;
+      border-radius: 50%;
+    }
+    .method-icon {
+      font-size: 30px; margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .method-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold2);
+      border: 1px solid rgba(201,153,58,0.4);
+      border-radius: 20px; padding: 3px 12px; margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .method-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 21px; margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .method-card p {
+      font-size: 13.5px; color: rgba(255,255,255,0.82);
+      line-height: 1.75; position: relative; z-index: 1;
+    }
+    .method-card p strong { color: var(--gold2); }
+    @media (max-width: 640px) {
+      .method-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── TABLE ── */
     .table-wrap {
       background: var(--white);
@@ -461,55 +511,85 @@
     }
 
     /* ── FLOW CHART ── */
-    .flow {
+    /* ── ADAPTIVE STEPPER (Tahapan Seleksi) ── */
+    .stepper {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+      position: relative;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      overflow: hidden;
+      padding: 26px 18px 22px;
     }
-    .flow-step {
-      flex: 1;
-      min-width: 120px;
-      padding: 20px 16px;
-      text-align: center;
-      position: relative;
-      background: var(--white);
-    }
-    .flow-step:not(:last-child)::after {
-      content: '→';
+    /* garis penghubung gradient emas, di belakang node */
+    .stepper::before {
+      content: '';
       position: absolute;
-      right: -8px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--gold);
-      font-size: 18px;
-      z-index: 2;
+      top: 46px;            /* = padding-top(26) + setengah node(20) */
+      left: 9%; right: 9%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 2px;
+      z-index: 0;
     }
-    .flow-step:nth-child(odd) { background: var(--off); }
-    .flow-num {
-      width: 28px; height: 28px;
+    .step {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .step-num {
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--navy);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 700;
+      color: #fff;
+      border: 3px solid var(--gold2);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 8px;
+      font-weight: 700; font-size: 15px;
+      box-shadow: 0 4px 12px rgba(11,29,58,0.25);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .flow-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.4;
+    .step:hover .step-num {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 8px 22px rgba(201,153,58,0.45);
     }
-    .flow-sub {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 4px;
+    .step-label {
+      font-size: 12.5px; font-weight: 700;
+      color: var(--navy); line-height: 1.3;
+    }
+    .step-sub {
+      font-size: 11px; color: var(--muted); margin-top: 3px;
+    }
+    /* HP: jadi timeline vertikal dengan garis di kiri */
+    @media (max-width: 640px) {
+      .stepper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 14px 18px;
+      }
+      .stepper::before {
+        top: 32px; bottom: 32px; left: 36px; right: auto;
+        width: 3px; height: auto;
+        background: linear-gradient(180deg, var(--gold), var(--gold2));
+      }
+      .step {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 16px;
+        padding: 10px 0;
+      }
+      .step-num { flex-shrink: 0; }
+      .step-body { flex: 1; }
+      .step-sub { margin-top: 1px; }
     }
 
     /* ── SOP BLOCK ── */
@@ -1579,8 +1659,6 @@
       .cover h1 { font-size: 32px; }
       .cover-pillars { gap: 10px; }
       .cover-pillar { min-width: 100px; padding: 12px 16px; }
-      .flow { flex-direction: column; }
-      .flow-step::after { display: none; }
       .tl-item { border-radius: 0; border-right: 1px solid var(--border); border-bottom: none; }
       .tl-item:first-child { border-radius: 16px 16px 0 0; }
       .tl-item:last-child { border-radius: 0 0 16px 16px; border-bottom: 1px solid var(--border); }
@@ -1692,94 +1770,43 @@
     </div>
   </div>
 
-  <!-- BAGIAN 2 — JALUR -->
+  <!-- BAGIAN 2 — TAHAPAN SELEKSI -->
   <div class="section">
-    <p class="section-label">02 — Jalur & Target Peserta</p>
-    <h2 class="section-title">Program tersedia untuk<br>semua jalur masuk.</h2>
-    <div class="divider"></div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Jalur</th>
-            <th>Target Peserta</th>
-            <th>Durasi Ideal</th>
-            <th>Prioritas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tamtama</td>
-            <td>Lulusan SMP/SMA, usia 17–21 tahun</td>
-            <td>3 bulan</td>
-            <td><span class="badge badge-med">Fisik & Administrasi</span></td>
-          </tr>
-          <tr>
-            <td>Bintara</td>
-            <td>Lulusan SMA/sederajat, usia 17–21 tahun</td>
-            <td>4–5 bulan</td>
-            <td><span class="badge badge-high">Akademik + Fisik</span></td>
-          </tr>
-          <tr>
-            <td>AKPOL</td>
-            <td>Lulusan SMA nilai tinggi, usia 17–21 tahun</td>
-            <td>5 bulan</td>
-            <td><span class="badge badge-high">Akademik + Psikologi</span></td>
-          </tr>
-          <tr>
-            <td>SIPSS</td>
-            <td>Sarjana S1/S2 profesi tertentu</td>
-            <td>3 bulan</td>
-            <td><span class="badge badge-green">Psikologi & Wawancara</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- BAGIAN 3 — TAHAPAN SELEKSI -->
-  <div class="section">
-    <p class="section-label">03 — Acuan Kurikulum</p>
+    <p class="section-label">02 — Acuan Kurikulum</p>
     <h2 class="section-title">Tahapan seleksi resmi<br>sebagai kompas program.</h2>
     <div class="divider"></div>
     <p class="section-desc">Sistem seleksi POLRI bersifat <strong>gugur bertahap</strong>. Gagal di satu tahap, selesai. Tidak ada pengulangan. Ini yang membuat program harus benar-benar komprehensif.</p>
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-num">1</div>
-        <div class="flow-label">Administrasi</div>
-        <div class="flow-sub">Berkas & verifikasi</div>
+    <div class="stepper">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><div class="step-label">Administrasi</div><div class="step-sub">Berkas &amp; verifikasi</div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">2</div>
-        <div class="flow-label">Kesehatan</div>
-        <div class="flow-sub">Kes I & II</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><div class="step-label">Kesehatan</div><div class="step-sub">Kes I &amp; II</div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">3</div>
-        <div class="flow-label">Psikologi</div>
-        <div class="flow-sub">CAT Psikologi</div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><div class="step-label">Psikologi</div><div class="step-sub">CAT Psikologi</div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">4</div>
-        <div class="flow-label">Akademik</div>
-        <div class="flow-sub">CAT Komputer</div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body"><div class="step-label">Akademik</div><div class="step-sub">CAT Komputer</div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">5</div>
-        <div class="flow-label">Kesamaptaan</div>
-        <div class="flow-sub">Tes Fisik</div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body"><div class="step-label">Kesamaptaan</div><div class="step-sub">Tes Fisik</div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">6</div>
-        <div class="flow-label">Pantukhir</div>
-        <div class="flow-sub">Sidang akhir</div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body"><div class="step-label">Pantukhir</div><div class="step-sub">Sidang akhir</div></div>
       </div>
     </div>
   </div>
 
   <!-- BAGIAN 4 — AKADEMIK -->
   <div class="section">
-    <p class="section-label">04 — Kurikulum Akademik</p>
+    <p class="section-label">03 — Kurikulum Akademik</p>
     <h2 class="section-title">Materi yang relevan,<br>bukan yang sekadar banyak.</h2>
     <div class="divider"></div>
     <div class="dajiks-header">
@@ -1853,19 +1880,33 @@
   <!-- BAGIAN 4B — METODE HYPNOTEACHING -->
   <div class="section">
     <p class="section-label">04 — Metode Unggulan</p>
-    <h2 class="section-title">Peningkatan kapasitas belajar<br>dengan Hypnoteaching.</h2>
+    <h2 class="section-title">Dua metode bawah sadar<br>yang mempercepat hasil.</h2>
     <div class="divider"></div>
-    <div class="highlight" style="margin-bottom:24px">
-      <h3>Belajar Lebih Cepat, Fokus Lebih Dalam</h3>
-      <p>
-        D AJIKS menerapkan metode <strong style="color:#E8B84B">Hypnoteaching</strong> untuk meningkatkan
-        kapasitas belajar peserta — bukan sekadar menjejalkan materi, tapi membuka kondisi pikiran yang
-        paling siap menyerap.<br><br>
-        Dengan teknik sugesti positif, pengaturan gelombang fokus, dan manajemen rasa cemas,
-        peserta belajar dalam keadaan <strong style="color:#E8B84B">rileks namun terkonsentrasi penuh</strong> —
-        sehingga materi lebih cepat dipahami, retensi jangka panjang meningkat, dan rasa percaya diri saat
-        menghadapi CAT terbentuk secara alami.
-      </p>
+    <p class="section-desc">D AJIKS memadukan kekuatan pikiran bawah sadar untuk dua hal sekaligus: <strong>kapasitas belajar</strong> lewat Hypnoteaching, dan <strong>mentalitas serta daya tahan fisik</strong> lewat Hypnosport.</p>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon">🧠</div>
+        <span class="method-tag">Hypnoteaching · Akademik</span>
+        <h3>Belajar Lebih Cepat, Fokus Lebih Dalam</h3>
+        <p>
+          Bukan sekadar menjejalkan materi, tapi membuka kondisi pikiran yang paling siap menyerap.
+          Dengan <strong>sugesti positif</strong>, pengaturan gelombang fokus, dan manajemen rasa cemas,
+          peserta belajar dalam keadaan <strong>rileks namun terkonsentrasi penuh</strong> — materi lebih
+          cepat dipahami, retensi jangka panjang meningkat, dan percaya diri saat CAT terbentuk alami.
+        </p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🔥</div>
+        <span class="method-tag">Hypnosport · Mental &amp; Fisik</span>
+        <h3>Mental Juara, Daya Tahan Tubuh Terbentuk</h3>
+        <p>
+          Mengadopsi ilmu <strong>Hypnosport</strong> (hipnosis olahraga) yang dipakai atlet profesional —
+          menyempurnakan alam bawah sadar peserta agar yakin pada <strong>potensi besar dalam dirinya</strong>.
+          Lewat visualisasi keberhasilan dan pengendalian persepsi lelah &amp; nyeri, peserta membangun
+          <strong>mental tangguh</strong>, fokus di bawah tekanan, dan <strong>daya tahan fisik</strong> lebih
+          tinggi saat menghadapi tes kesamaptaan.
+        </p>
+      </div>
     </div>
 
     <div class="mentor-card">
