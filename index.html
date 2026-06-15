@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blueprint — D AJIKS AKADEMI</title>
+  <title>D AJIKS Akademi × RAHESA BRASATYA — Bimbel Seleksi POLRI Terpadu</title>
+  <meta name="description" content="Program kolaborasi persiapan seleksi POLRI terpadu — Akademik, Psikologi & Jasmani. 5 bulan intensif bersama mentor berpengalaman dengan rekam jejak kelulusan nyata."/>
+  <meta name="theme-color" content="#0B1D3A"/>
+  <link rel="canonical" href="https://blueprint-polri-ajiks.vercel.app/"/>
+
+  <!-- Open Graph / WhatsApp & social preview -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="id_ID"/>
+  <meta property="og:site_name" content="D AJIKS Akademi × RAHESA BRASATYA"/>
+  <meta property="og:title" content="D AJIKS Akademi × RAHESA BRASATYA — Bimbel Seleksi POLRI Terpadu"/>
+  <meta property="og:description" content="Program persiapan seleksi POLRI terpadu — Akademik, Psikologi & Jasmani. 5 bulan intensif, mentor berpengalaman, rekam jejak kelulusan nyata."/>
+  <meta property="og:url" content="https://blueprint-polri-ajiks.vercel.app/"/>
+  <meta property="og:image" content="https://blueprint-polri-ajiks.vercel.app/foto-polri-2.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="675"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="D AJIKS Akademi × RAHESA BRASATYA"/>
+  <meta name="twitter:description" content="Bimbel persiapan seleksi POLRI terpadu — Akademik, Psikologi & Jasmani. 5 bulan intensif."/>
+  <meta name="twitter:image" content="https://blueprint-polri-ajiks.vercel.app/foto-polri-2.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+
+  <!-- Fonts (preconnect untuk load lebih cepat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&display=swap"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&display=swap');
 
     :root {
       --navy:    #0B1D3A;
@@ -24,7 +51,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--off);
+      background: var(--navy);
       color: var(--text);
       line-height: 1.7;
       font-size: 15px;
@@ -32,15 +59,17 @@
 
     /* ── COVER ── */
     .cover {
-      background: linear-gradient(145deg, var(--navy) 0%, var(--navy2) 60%, #1a3a6b 100%);
+      background:
+        linear-gradient(145deg, rgba(11,29,58,0.55) 0%, rgba(19,40,71,0.45) 40%, rgba(11,29,58,0.65) 100%),
+        url('foto-polri-1.jpg') center 30% / cover no-repeat;
       color: var(--white);
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 60px 40px;
+      padding: 48px 24px;
       position: relative;
       overflow: hidden;
     }
@@ -49,7 +78,7 @@
       content: '';
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(201,153,58,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,153,58,0.18) 0%, transparent 70%);
       top: -100px; right: -100px;
       border-radius: 50%;
     }
@@ -57,9 +86,62 @@
       content: '';
       position: absolute;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(201,153,58,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,153,58,0.10) 0%, transparent 70%);
       bottom: -80px; left: -80px;
       border-radius: 50%;
+    }
+
+    /* ── COVER INNER ── */
+    .cover-inner {
+      max-width: 660px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── COVER HERO IMAGE ── */
+    .cover-hero-img {
+      position: absolute;
+      right: 0; bottom: 0;
+      height: 75%;
+      width: auto;
+      object-fit: cover;
+      object-position: top;
+      opacity: 0.18;
+      filter: grayscale(30%) contrast(1.1);
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.6) 0%, transparent 70%),
+                  linear-gradient(to top, transparent 0%, rgba(0,0,0,1) 20%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.6) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── POLRI OFFICER ACCENT ── */
+    .polri-officer-badge {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 340px;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .polri-officer-badge img {
+      position: absolute;
+      bottom: 0; right: 0;
+      height: 85%;
+      width: auto;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0.2;
+      filter: grayscale(20%) brightness(0.9);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 80%),
+                          linear-gradient(to top, transparent 0%, black 15%);
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 80%);
     }
 
     .cover-badge {
@@ -142,16 +224,31 @@
       letter-spacing: 1px;
     }
 
+    /* ── MOBILE OVERFLOW FIX ── */
+    /* Flex-column align-center membuat anak teks ambil lebar max-content → paksa membungkus */
+    .cover-inner { width: 100%; }
+    .cover-inner > * { max-width: 100%; }
+    .cover-sub, .cover-meta, .cover-badge { max-width: 100%; overflow-wrap: anywhere; }
+    /* Jaring pengaman: cegah scroll horizontal / zoom-out di HP */
+    html, body { overflow-x: hidden; }
+    img, picture, svg, video { max-width: 100%; }
+
     /* ── WRAPPER ── */
     .wrapper {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px 64px;
+      background: var(--off);
+      border-radius: 0 0 20px 20px;
+    }
+
+    @media (min-width: 768px) {
+      .wrapper { padding: 0 40px 72px; }
     }
 
     /* ── SECTION ── */
     .section {
-      margin-top: 64px;
+      margin-top: 40px;
     }
 
     .section-label {
@@ -188,33 +285,33 @@
     /* ── CARDS ── */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
     }
 
     .card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 18px;
       transition: box-shadow .2s;
     }
-    .card:hover { box-shadow: 0 4px 24px rgba(11,29,58,0.08); }
+    .card:hover { box-shadow: 0 4px 20px rgba(11,29,58,0.08); }
 
     .card-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
+      font-size: 24px;
+      margin-bottom: 10px;
     }
     .card h3 {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
     .card p {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--sub);
-      line-height: 1.6;
+      line-height: 1.55;
     }
     .card .tag {
       display: inline-block;
@@ -232,8 +329,8 @@
     .highlight {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
       color: var(--white);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 16px;
+      padding: 28px;
       margin-bottom: 0;
       position: relative;
       overflow: hidden;
@@ -265,12 +362,14 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     table {
       width: 100%;
       border-collapse: collapse;
     }
+    .table-wrap table { min-width: 460px; }
     thead tr {
       background: var(--navy);
       color: var(--white);
@@ -550,9 +649,922 @@
       text-align: center;
       padding: 40px 24px;
       font-size: 13px;
-      margin-top: 80px;
+      margin-top: 0;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 0 0 20px 20px;
     }
     .footer strong { color: var(--gold2); }
+
+    /* ── COLLAB LOGOS ── */
+    .collab-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 0 auto 28px;
+      position: relative; z-index: 1;
+    }
+    .collab-logo-wrap {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+      background: rgba(255,255,255,0.05);
+      flex-shrink: 0;
+    }
+    .collab-logo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .collab-x {
+      font-size: 22px;
+      color: var(--gold2);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ── PARTNER BADGE ── */
+    .partner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .partner-badge.dajiks {
+      background: rgba(11,29,58,0.08);
+      color: var(--navy);
+      border: 1px solid rgba(11,29,58,0.2);
+    }
+    .partner-badge.rahesa {
+      background: rgba(139,26,26,0.08);
+      color: #8B1A1A;
+      border: 1px solid rgba(139,26,26,0.25);
+    }
+    .partner-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .partner-badge.dajiks .dot { background: var(--gold); }
+    .partner-badge.rahesa .dot { background: #C0392B; }
+
+    /* ── RAHESA SECTION HEADER ── */
+    .rahesa-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #1a0505 0%, #3d0f0f 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rahesa-header::before {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(192,57,43,0.2) 0%, transparent 70%);
+      top: -60px; right: -40px;
+      border-radius: 50%;
+    }
+    .rahesa-logo-mini {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .rahesa-logo-mini img { width: 100%; height: 100%; object-fit: cover; }
+    .rahesa-header-text { position: relative; z-index: 1; }
+    .rahesa-header-text h4 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      color: #FFD700;
+    }
+    .rahesa-header-text p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+
+    /* ── DAJIKS SECTION HEADER ── */
+    .dajiks-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dajiks-header::before {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,153,58,0.15) 0%, transparent 70%);
+      top: -60px; right: -40px;
+      border-radius: 50%;
+    }
+    .dajiks-logo-mini {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid rgba(201,153,58,0.5);
+    }
+    .dajiks-logo-mini img { width: 100%; height: 100%; object-fit: cover; }
+    .dajiks-header-text { position: relative; z-index: 1; }
+    .dajiks-header-text h4 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      color: var(--gold2);
+    }
+    .dajiks-header-text p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+
+    /* ── TEAM GROUP ── */
+    .team-group {
+      margin-bottom: 32px;
+    }
+    .team-group-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+    .team-group-logo {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .team-group-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .team-group-name {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .team-group-name.dajiks-color { color: var(--navy); }
+    .team-group-name.rahesa-color { color: #8B1A1A; }
+
+    /* ── COVER PILLAR PARTNER TAG ── */
+    .pillar-partner {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-top: 4px;
+    }
+
+    /* ── PHOTO BANNER ── */
+    .photo-banner {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: clamp(280px, 44vh, 420px);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .photo-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(1.05) contrast(1.08) saturate(1.15);
+    }
+    .photo-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,29,58,0.25) 0%,
+        rgba(11,29,58,0.0) 25%,
+        rgba(11,29,58,0.0) 65%,
+        rgba(11,29,58,0.4) 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-banner-caption {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-align: center;
+      background: rgba(11,29,58,0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px 40px;
+    }
+    .photo-banner-caption em {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      font-style: normal;
+      color: var(--gold2);
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: flex;
+      background: var(--navy);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 32px;
+      margin-bottom: 0;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 20px 12px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      color: var(--gold2);
+      line-height: 1;
+    }
+    .stat-label {
+      display: block;
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+    @media (max-width: 480px) {
+      .stats-strip { border-radius: 12px; }
+      .stat-num { font-size: 22px; }
+      .stat-item { padding: 14px 8px; }
+    }
+
+    /* ── FOUNDER CARD ── */
+    .founder-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2144 100%);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .founder-section::before {
+      content: '';
+      position: absolute;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(201,153,58,0.12) 0%, transparent 70%);
+      top: -80px; right: -60px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .founder-photo-wrap {
+      flex-shrink: 0;
+      width: 130px; height: 150px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid rgba(201,153,58,0.5);
+      position: relative; z-index: 1;
+    }
+    .founder-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .founder-info {
+      position: relative; z-index: 1;
+      flex: 1;
+    }
+    .founder-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold2);
+      border: 1px solid rgba(201,153,58,0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .founder-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .founder-title {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    .founder-tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .founder-track {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.5;
+    }
+    .founder-track-icon {
+      width: 24px; height: 24px;
+      background: rgba(201,153,58,0.15);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .founder-quote {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    @media (max-width: 560px) {
+      .founder-section { flex-direction: column; padding: 24px 20px; gap: 20px; }
+      .founder-photo-wrap { width: 90px; height: 105px; }
+      .founder-name { font-size: 22px; }
+    }
+
+    /* ── MENTOR CARD ── */
+    .mentor-card {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2144 100%);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mentor-card::before {
+      content: '';
+      position: absolute;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(201,153,58,0.10) 0%, transparent 70%);
+      top: -80px; right: -60px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .mentor-photo-wrap {
+      flex-shrink: 0;
+      width: 130px; height: 150px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid rgba(201,153,58,0.5);
+      position: relative; z-index: 1;
+    }
+    .mentor-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .mentor-info { flex: 1; position: relative; z-index: 1; }
+    .mentor-role-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold2);
+      border: 1px solid rgba(201,153,58,0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .mentor-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+    .mentor-degree {
+      font-size: 12px;
+      color: var(--gold2);
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+    .track-years {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .track-year-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .track-year-label {
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      min-width: 36px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    .track-badge-polri {
+      display: inline-block;
+      background: rgba(59,130,246,0.25);
+      color: #93C5FD;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+    .track-badge-ipdn {
+      display: inline-block;
+      background: rgba(16,185,129,0.2);
+      color: #6EE7B7;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(16,185,129,0.3);
+    }
+    .track-total {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .track-total-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .track-total-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--gold2);
+      line-height: 1;
+    }
+    .track-total-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+    @media (max-width: 560px) {
+      .mentor-card { flex-direction: column; padding: 24px 20px; gap: 20px; }
+      .mentor-photo-wrap { width: 90px; height: 105px; }
+      .mentor-name { font-size: 20px; }
+    }
+
+    /* ── CAT SIMULATOR BUTTON ── */
+    .cat-sim-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: var(--gold2);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(201,153,58,0.35);
+      text-decoration: none;
+      margin-top: 20px;
+      transition: opacity .2s;
+    }
+    .cat-sim-btn:hover { opacity: 0.85; }
+    .cat-sim-btn .cat-arrow { font-size: 16px; }
+
+    /* ── CALCULATOR ── */
+    .calc-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .calc-wrapper { grid-template-columns: 1fr; } }
+
+    .calc-panel { display: flex; flex-direction: column; gap: 16px; }
+
+    .calc-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .calc-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .calc-field { margin-bottom: 12px; }
+    .calc-field:last-child { margin-bottom: 0; }
+    .calc-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--sub);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .calc-input, .calc-select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      font-weight: 600;
+      background: var(--off);
+      transition: border-color .15s;
+      outline: none;
+    }
+    .calc-input:focus, .calc-select:focus { border-color: var(--gold); background: #fff; }
+
+    /* Results panel */
+    .calc-results-panel {
+      position: sticky;
+      top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .calc-summary-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .calc-summary-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .calc-summary-item.accent {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-color: transparent;
+    }
+    .calc-summary-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--gold2);
+      line-height: 1.2;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .calc-summary-item:not(.accent) .calc-summary-num { color: var(--navy); }
+    .calc-summary-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--sub);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .calc-summary-item.accent .calc-summary-label { color: rgba(255,255,255,0.6); }
+
+    .calc-rec-box {
+      background: linear-gradient(135deg, #1a3a1a 0%, #0d2a0d 100%);
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .calc-rec-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    .calc-rec-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: #6EE7B7;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .calc-rec-sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+    .calc-breakdown {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .calc-breakdown-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .bdk-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .bdk-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .bdk-label { flex: 1; font-size: 12px; color: var(--sub); }
+    .bdk-val { font-size: 12px; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .bdk-bar-wrap {
+      background: var(--off);
+      border-radius: 4px;
+      height: 5px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .bdk-bar { height: 100%; border-radius: 4px; transition: width .35s ease; }
+
+    .calc-detail-table { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .cdt-row { border-bottom: 1px solid var(--border); }
+    .cdt-row:last-child { border-bottom: none; }
+    .cdt-k { padding: 7px 0; font-size: 12px; color: var(--sub); }
+    .cdt-v { padding: 7px 0; font-size: 12px; font-weight: 700; color: var(--navy); text-align: right; }
+
+    /* ── PHOTO GRID (galeri suasana) ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .photo-grid figure {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--navy);
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .photo-grid figure:hover img { transform: scale(1.04); }
+    .photo-grid figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 16px 14px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(to top, rgba(11,29,58,0.85), transparent);
+    }
+    @media (max-width: 560px) {
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-grid img { height: 220px; }
+    }
+    /* Galeri Suasana Kelas — 3 kolom, foto portrait tampil tegak penuh (tidak dipotong jadi strip landscape) */
+    .photo-grid--kelas { grid-template-columns: repeat(3, 1fr); }
+    .photo-grid--kelas img { height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+    @media (max-width: 560px) {
+      .photo-grid--kelas { grid-template-columns: 1fr; }
+      .photo-grid--kelas img { height: auto; aspect-ratio: 3 / 4; }
+    }
+
+    /* ── PRICE / PAKET ── */
+    .price-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    @media (max-width: 720px) { .price-wrap { grid-template-columns: 1fr; } }
+
+    .price-normal {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .price-normal .price-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .price-normal .price-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px; color: var(--navy); line-height: 1;
+    }
+    .price-normal .price-note { font-size: 13px; color: var(--sub); margin-top: 8px; }
+
+    .price-earlybird {
+      background: linear-gradient(135deg, #1a3a1a 0%, #0d2a0d 100%);
+      border-radius: 16px;
+      padding: 28px 26px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-earlybird::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(110,231,183,0.18) 0%, transparent 70%);
+      top: -70px; right: -50px; border-radius: 50%;
+    }
+    .price-badge-urgent {
+      display: inline-block;
+      background: rgba(220,38,38,0.95);
+      color: #fff;
+      font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .price-strike {
+      font-size: 18px; color: rgba(255,255,255,0.55);
+      text-decoration: line-through;
+      position: relative; z-index: 1;
+    }
+    .price-discount {
+      font-size: 13px; color: #FCA5A5; font-weight: 600;
+      margin: 4px 0 6px; position: relative; z-index: 1;
+    }
+    .price-hero {
+      font-family: 'DM Serif Display', serif;
+      font-size: 44px; color: #6EE7B7; line-height: 1;
+      position: relative; z-index: 1;
+    }
+    .price-hero-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 6px; position: relative; z-index: 1; }
+    .price-earlybird .cat-sim-btn {
+      background: rgba(255,255,255,0.1);
+      color: #6EE7B7;
+      border-color: rgba(110,231,183,0.4);
+      position: relative; z-index: 1;
+    }
+
+    /* ── REVIEW CTA ── */
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .review-card .review-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: var(--off); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+    }
+    .review-card .review-body { flex: 1; min-width: 200px; }
+    .review-card h4 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+    .review-card p { font-size: 13px; color: var(--sub); }
+
+    /* ── REVIEW WALL (dinding ulasan auto-scroll) ── */
+    .review-wall {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+              mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    }
+    .review-wall-track {
+      display: block;
+      animation: reviewScroll 160s linear infinite;
+      will-change: transform;
+    }
+    .review-wall:hover .review-wall-track { animation-play-state: paused; }
+    @keyframes reviewScroll {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+    .review-wall.in-section { height: 520px; }
+
+    .rw-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;            /* seragam (termasuk terakhir) → loop -50% mulus */
+      box-shadow: 0 2px 10px rgba(11,29,58,0.05);
+    }
+    .rw-top {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 8px;
+    }
+    .rw-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      text-transform: uppercase;
+    }
+    .rw-id { flex: 1; min-width: 0; }
+    .rw-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .rw-email {
+      font-size: 10.5px;
+      color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .rw-stars {
+      font-size: 12px;
+      color: var(--gold2);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .rw-quote {
+      font-size: 12.5px;
+      color: var(--sub);
+      line-height: 1.55;
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: 560px) {
+      .review-wall.in-section { height: 400px; }
+    }
 
     /* ── PRINT ── */
     @media print {
@@ -579,34 +1591,75 @@
 
 <!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
 <div class="cover">
-  <div class="cover-badge">Program Blueprint 2026</div>
-  <div class="cover-logo-ring"><span>🎖️</span></div>
-  <h1><em>D AJIKS</em><br>AKADEMI</h1>
-  <p class="cover-sub">Bimbingan Belajar Seleksi POLRI — Bintara · Tamtama · AKPOL</p>
-  <div class="cover-divider"></div>
-  <div class="cover-pillars">
-    <div class="cover-pillar">
-      <div class="icon">📚</div>
-      <div class="label">Akademik</div>
+  <div class="cover-inner">
+    <div class="cover-badge">Program Kolaborasi Blueprint 2026</div>
+    <div class="collab-logos">
+      <div class="collab-logo-wrap">
+        <picture><source srcset="logo-dajiks.webp" type="image/webp"><img src="logo-dajiks.jpg" alt="Logo D AJIKS"></picture>
+      </div>
+      <div class="collab-x">×</div>
+      <div class="collab-logo-wrap">
+        <picture><source srcset="logo-rahesa.webp" type="image/webp"><img src="logo-rahesa.jpg" alt="Logo Rahesa Brasatya"></picture>
+      </div>
     </div>
-    <div class="cover-pillar">
-      <div class="icon">🏃</div>
-      <div class="label">Jasmani</div>
+    <h1 style="line-height:1.15">
+      <em>D AJIKS</em><br>
+      <span style="font-size:0.42em;color:rgba(232,184,75,0.75);font-family:'Inter',sans-serif;font-weight:400;letter-spacing:3px;display:block;margin-top:6px">× &nbsp;RAHESA BRASATYA</span>
+    </h1>
+    <p class="cover-sub">Program Kolaborasi Seleksi POLRI — Akademik · Psikologi · Jasmani · Bintara · Tamtama · AKPOL</p>
+    <div class="cover-divider"></div>
+    <div class="cover-pillars">
+      <div class="cover-pillar">
+        <div class="icon">📚</div>
+        <div class="label">Akademik</div>
+        <div class="pillar-partner">D AJIKS</div>
+      </div>
+      <div class="cover-pillar">
+        <div class="icon">🧠</div>
+        <div class="label">Psikologi</div>
+        <div class="pillar-partner">D AJIKS</div>
+      </div>
+      <div class="cover-pillar">
+        <div class="icon">🏃</div>
+        <div class="label">Jasmani</div>
+        <div class="pillar-partner">RAHESA</div>
+      </div>
+      <div class="cover-pillar">
+        <div class="icon">🎯</div>
+        <div class="label">Mental</div>
+        <div class="pillar-partner">RAHESA</div>
+      </div>
     </div>
-    <div class="cover-pillar">
-      <div class="icon">🧠</div>
-      <div class="label">Psikologi</div>
-    </div>
-    <div class="cover-pillar">
-      <div class="icon">🎯</div>
-      <div class="label">Mental</div>
-    </div>
+    <p class="cover-meta">Program Kolaborasi Resmi · Seleksi POLRI Terpadu · 2026</p>
   </div>
-  <p class="cover-meta">Dokumen Internal · Versi 1.0 · Juni 2026</p>
 </div>
 
 <!-- ═══════════════════════════════ CONTENT ═══════════════════════════════ -->
 <div class="wrapper">
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Jalur Seleksi</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Bulan Intens</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Entitas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">70%</span>
+      <span class="stat-label">Target Lolos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Pilar Program</span>
+    </div>
+  </div>
 
   <!-- BAGIAN 1 — VISI -->
   <div class="section">
@@ -614,13 +1667,28 @@
     <h2 class="section-title">Bukan sekadar lulus.<br>Tapi layak lulus.</h2>
     <div class="divider"></div>
     <div class="highlight">
-      <h3>Filosofi D AJIKS AKADEMI</h3>
+      <h3>Filosofi Kolaborasi: D AJIKS × RAHESA BRASATYA</h3>
       <p>
         Seleksi POLRI tidak hanya menyaring yang paling pintar atau paling kuat — ia menyaring yang <strong style="color:#E8B84B">paling siap secara menyeluruh.</strong>
-        Program ini dibangun untuk menjawab semua dimensi itu. Setiap peserta diperlakukan sebagai individu dengan titik awal yang berbeda,
-        bukan kelas massal yang seragam. Yang keluar dari program ini bukan hanya yang "lolos seleksi" —
-        tapi yang sudah punya <strong style="color:#E8B84B">karakter, disiplin, dan kesiapan mental</strong> yang memang layak menjadi anggota Polri.
+        Program kolaborasi ini lahir dari keyakinan bahwa keunggulan sejati tidak bisa dikerjakan setengah-setengah.<br><br>
+        <strong style="color:#E8B84B">D AJIKS AKADEMI</strong> mengambil tanggung jawab penuh pada kecerdasan dan karakter:
+        kurikulum akademik yang tajam, psikologi yang dibentuk — bukan dipoles, dan narasi diri yang jujur.<br><br>
+        <strong style="color:#E8B84B">BIMBEL RAHESA BRASATYA</strong> membangun tubuh dan mental juara:
+        periodisasi latihan fisik yang terstruktur, pembentukan daya tahan yang progresif, dan semangat
+        <em>"Membentuk Mental Juara, Menempa Budi Pekerti."</em><br><br>
+        Bersama, keduanya mencakup <strong style="color:#E8B84B">seluruh dimensi seleksi</strong> — tidak ada celah yang terlewat.
       </p>
+    </div>
+  </div>
+
+  <!-- PHOTO BANNER — AKPOL TARUNA -->
+  <div class="photo-banner">
+    <picture><source srcset="foto-polri-2.webp" type="image/webp"><img src="foto-polri-2.jpg" alt="Taruna AKPOL Parade"></picture>
+    <div class="photo-banner-overlay">
+      <div class="photo-banner-caption">
+        Seleksi POLRI — Bintara · Tamtama · AKPOL
+        <em>Ini tujuan kita.</em>
+      </div>
     </div>
   </div>
 
@@ -649,13 +1717,13 @@
           <tr>
             <td>Bintara</td>
             <td>Lulusan SMA/sederajat, usia 17–21 tahun</td>
-            <td>4–6 bulan</td>
+            <td>4–5 bulan</td>
             <td><span class="badge badge-high">Akademik + Fisik</span></td>
           </tr>
           <tr>
             <td>AKPOL</td>
             <td>Lulusan SMA nilai tinggi, usia 17–21 tahun</td>
-            <td>6–8 bulan</td>
+            <td>5 bulan</td>
             <td><span class="badge badge-high">Akademik + Psikologi</span></td>
           </tr>
           <tr>
@@ -714,6 +1782,13 @@
     <p class="section-label">04 — Kurikulum Akademik</p>
     <h2 class="section-title">Materi yang relevan,<br>bukan yang sekadar banyak.</h2>
     <div class="divider"></div>
+    <div class="dajiks-header">
+      <div class="dajiks-logo-mini"><picture><source srcset="logo-dajiks.webp" type="image/webp"><img src="logo-dajiks.jpg" alt="D AJIKS"></picture></div>
+      <div class="dajiks-header-text">
+        <h4>D AJIKS AKADEMI</h4>
+        <p>Akademik & CAT — dikelola sepenuhnya oleh D AJIKS · Academy Kedinasan Bimbel Prestasi</p>
+      </div>
+    </div>
     <div class="table-wrap" style="margin-bottom:24px">
       <table>
         <thead>
@@ -725,9 +1800,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>Matematika Dasar</td>
+            <td>Matematika Dasar (Penalaran Numerik)</td>
             <td><span class="badge badge-high">Tinggi</span></td>
-            <td>Operasi bilangan, persentase, logika numerik, aljabar dasar</td>
+            <td>Operasi bilangan, persentase, penalaran numerik, aljabar dasar</td>
           </tr>
           <tr>
             <td>Bahasa Indonesia</td>
@@ -748,11 +1823,6 @@
             <td>Bahasa Inggris</td>
             <td><span class="badge badge-med">Sedang</span></td>
             <td>Vocabulary, reading comprehension, tata bahasa dasar</td>
-          </tr>
-          <tr>
-            <td>TPA / Logika</td>
-            <td><span class="badge badge-high">Tinggi</span></td>
-            <td>Pola gambar, analogi, silogisme, deret angka/huruf</td>
           </tr>
         </tbody>
       </table>
@@ -780,11 +1850,79 @@
     </div>
   </div>
 
+  <!-- BAGIAN 4B — METODE HYPNOTEACHING -->
+  <div class="section">
+    <p class="section-label">04 — Metode Unggulan</p>
+    <h2 class="section-title">Peningkatan kapasitas belajar<br>dengan Hypnoteaching.</h2>
+    <div class="divider"></div>
+    <div class="highlight" style="margin-bottom:24px">
+      <h3>Belajar Lebih Cepat, Fokus Lebih Dalam</h3>
+      <p>
+        D AJIKS menerapkan metode <strong style="color:#E8B84B">Hypnoteaching</strong> untuk meningkatkan
+        kapasitas belajar peserta — bukan sekadar menjejalkan materi, tapi membuka kondisi pikiran yang
+        paling siap menyerap.<br><br>
+        Dengan teknik sugesti positif, pengaturan gelombang fokus, dan manajemen rasa cemas,
+        peserta belajar dalam keadaan <strong style="color:#E8B84B">rileks namun terkonsentrasi penuh</strong> —
+        sehingga materi lebih cepat dipahami, retensi jangka panjang meningkat, dan rasa percaya diri saat
+        menghadapi CAT terbentuk secara alami.
+      </p>
+    </div>
+
+    <div class="mentor-card">
+      <div class="mentor-photo-wrap">
+        <picture><source srcset="foto-ajiks.webp" type="image/webp"><img src="foto-ajiks.jpg" alt="Gusti Komang Sulastra"></picture>
+      </div>
+      <div class="mentor-info">
+        <span class="mentor-role-tag">Instruktur Hypnoteaching · D AJIKS</span>
+        <div class="mentor-name">Kompol. Dr. Gusti Komang Sulastra, S.H., M.H., C.Ht.</div>
+        <div class="mentor-degree">Bersertifikat IHC (Indonesian Hypnosis Centre)</div>
+        <div class="founder-tracks">
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🧠</div>
+            <span>Praktisi Hypnoteaching bersertifikat <strong style="color:var(--gold2)">IHC</strong> — menerapkan teknik komunikasi bawah sadar untuk mempercepat pemahaman materi.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🎯</div>
+            <span>Membantu peserta mengelola kecemasan ujian dan membangun fokus tajam saat menghadapi tekanan CAT.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">⚡</div>
+            <span>Fokus: peningkatan kapasitas belajar, retensi jangka panjang, dan kepercayaan diri peserta.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALERI SUASANA KELAS -->
+    <h3 style="margin-top:32px;font-size:14px;color:var(--navy)">📸 Suasana Kelas D AJIKS</h3>
+    <div class="photo-grid photo-grid--kelas">
+      <figure>
+        <picture><source srcset="suasana-kelas-1.webp" type="image/webp"><img src="suasana-kelas-1.jpg" alt="Suasana kelas D AJIKS" loading="lazy"></picture>
+        <figcaption>Sesi Belajar Tatap Muka</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="suasana-kelas-2.webp" type="image/webp"><img src="suasana-kelas-2.jpg" alt="Suasana kelas D AJIKS" loading="lazy"></picture>
+        <figcaption>Pembahasan Materi & CAT</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="suasana-kelas-3.webp" type="image/webp"><img src="suasana-kelas-3.jpg" alt="Suasana kelas D AJIKS" loading="lazy"></picture>
+        <figcaption>Diskusi Kelompok & Simulasi</figcaption>
+      </figure>
+    </div>
+  </div>
+
   <!-- BAGIAN 5 — JASMANI -->
   <div class="section">
-    <p class="section-label">05 — Program Jasmani</p>
+    <p class="section-label">05 — Program Jasmani · RAHESA BRASATYA</p>
     <h2 class="section-title">Fisik dibangun bertahap,<br>bukan dipaksakan instan.</h2>
     <div class="divider"></div>
+    <div class="rahesa-header">
+      <div class="rahesa-logo-mini"><picture><source srcset="logo-rahesa.webp" type="image/webp"><img src="logo-rahesa.jpg" alt="Rahesa Brasatya"></picture></div>
+      <div class="rahesa-header-text">
+        <h4>BIMBEL RAHESA BRASATYA</h4>
+        <p>"Membentuk Mental Juara, Menempa Budi Pekerti" — Program Jasmani & Kesamaptaan</p>
+      </div>
+    </div>
 
     <div class="table-wrap" style="margin-bottom:32px">
       <table>
@@ -853,35 +1991,123 @@
     </div>
 
     <div style="margin-top:24px;" class="card">
-      <h3 style="margin-bottom:16px;font-size:14px;color:var(--navy)">📅 Jadwal Latihan Mingguan</h3>
+      <h3 style="margin-bottom:6px;font-size:14px;color:var(--navy)">📅 Drill Jasmani Mingguan — Mas Eky</h3>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:16px">Periodisasi lari terstruktur sepanjang pekan untuk membangun endurance, kecepatan, dan kekuatan secara progresif.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;">
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Senin</div>
-          <div style="font-size:11px;color:var(--sub)">Lari + Sit-up / Push-up</div>
+          <div style="font-size:11px;color:var(--sub)">Easy Run</div>
         </div>
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Selasa</div>
-          <div style="font-size:11px;color:var(--sub)">Akademik + Pull-up & Core</div>
+          <div style="font-size:11px;color:var(--sub)">Parlek (Fartlek)</div>
         </div>
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Rabu</div>
-          <div style="font-size:11px;color:var(--sub)">Renang / Teknis</div>
+          <div style="font-size:11px;color:var(--sub)">Interval</div>
         </div>
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Kamis</div>
-          <div style="font-size:11px;color:var(--sub)">Akademik + Sprint & Agility</div>
+          <div style="font-size:11px;color:var(--sub)">Medium Run</div>
         </div>
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Jumat</div>
-          <div style="font-size:11px;color:var(--sub)">Latihan Gabungan Simulasi</div>
+          <div style="font-size:11px;color:var(--sub)">Strength Training</div>
         </div>
         <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Sabtu</div>
-          <div style="font-size:11px;color:var(--sub)">Full Tryout + Evaluasi</div>
+          <div style="font-size:11px;color:var(--sub)">Renang</div>
         </div>
-        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;">
+        <div style="text-align:center;padding:12px 8px;background:var(--off);border-radius:10px;opacity:.65">
           <div style="font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px">Minggu</div>
-          <div style="font-size:11px;color:var(--sub)">Pemulihan Aktif</div>
+          <div style="font-size:11px;color:var(--sub)">Libur</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALERI SUASANA JASMANI -->
+    <h3 style="margin-top:32px;font-size:14px;color:var(--navy)">📸 Suasana Latihan Jasmani</h3>
+    <div class="photo-grid">
+      <figure>
+        <picture><source srcset="suasana-jasmani-1.webp" type="image/webp"><img src="suasana-jasmani-1.jpg" alt="Latihan renang kesamaptaan" loading="lazy"></picture>
+        <figcaption>Latihan Renang</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="suasana-jasmani-2.webp" type="image/webp"><img src="suasana-jasmani-2.jpg" alt="Latihan pull-up kesamaptaan" loading="lazy"></picture>
+        <figcaption>Latihan Pull-Up & Kekuatan</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="suasana-jasmani-3.webp" type="image/webp"><img src="suasana-jasmani-3.jpg" alt="Pemanasan dan peregangan bersama Brigade Brasatya Rahesa" loading="lazy"></picture>
+        <figcaption>Pemanasan & Peregangan Bersama</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="suasana-jasmani-4.webp" type="image/webp"><img src="suasana-jasmani-4.jpg" alt="Latihan push-up kesamaptaan" loading="lazy"></picture>
+        <figcaption>Latihan Push-Up & Daya Tahan</figcaption>
+      </figure>
+    </div>
+
+    <!-- PEMBINA UTAMA FISIK -->
+    <div class="mentor-card">
+      <div class="mentor-photo-wrap">
+        <picture><source srcset="foto-nyoman-alit.webp" type="image/webp"><img src="foto-nyoman-alit.jpg" alt="Ipda I Nyoman Alit Trinadi Arta" style="object-position:center 18%"></picture>
+      </div>
+      <div class="mentor-info">
+        <span class="mentor-role-tag">Pembina Utama Fisik · RAHESA BRASATYA</span>
+        <div class="mentor-name">Ipda I Nyoman Alit Trinadi Arta, S.H., M.H.</div>
+        <div class="mentor-degree">Inspektur Polisi Dua (Ipda) — CV lengkap menyusul</div>
+        <div class="founder-tracks">
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🎖️</div>
+            <span>Pembina utama program jasmani &amp; kesamaptaan — memimpin standar fisik bertaraf seleksi POLRI.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.6)">
+            <div class="founder-track-icon">📝</div>
+            <span><em>Kesatuan, rekam jejak, dan prestasi akan dilengkapi pada pembaruan berikutnya.</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUKTUR JASMANI — BRIPDA MUHAMMAD RIFKY APRIANSYAH -->
+    <div class="mentor-card" style="margin-top:20px">
+      <div class="mentor-photo-wrap">
+        <picture><source srcset="foto-instruktur-jasmani.webp" type="image/webp"><img src="foto-instruktur-jasmani.jpg" alt="Bripda Muhammad Rifky Apriansyah" style="object-position:center 18%"></picture>
+      </div>
+      <div class="mentor-info">
+        <span class="mentor-role-tag">Instruktur Jasmani · RAHESA BRASATYA</span>
+        <div class="mentor-name">Bripda Muhammad Rifky Apriansyah</div>
+        <div class="mentor-degree">Bintara Brimob · Angkatan 28 Watukosek 2023</div>
+        <div class="founder-tracks">
+          <div class="founder-track">
+            <div class="founder-track-icon">🎖️</div>
+            <span>Lulusan <strong style="color:var(--gold2)">Bintara Brimob Angkatan 28</strong>, Pendidikan Watukosek tahun 2023.</span>
+          </div>
+          <div class="founder-track">
+            <div class="founder-track-icon">🏅</div>
+            <span>Meraih predikat <strong style="color:var(--gold2)">TRINGGINAS — lulusan jasmani tertinggi se-Nusantara</strong>, dengan capaian 8 putaran lari 300 meter saat tes & pendidikan di Watukosek.</span>
+          </div>
+          <div class="founder-track">
+            <div class="founder-track-icon">🥈</div>
+            <span><strong style="color:var(--gold2)">Juara 2 lari 1.500 m</strong> pada Kejuaraan Daerah (Kejurda) — prestasi atletik tingkat kompetitif.</span>
+          </div>
+          <div class="founder-track">
+            <div class="founder-track-icon">🥉</div>
+            <span><strong style="color:var(--gold2)">Juara 3 lari 5.000 m</strong> dengan catatan waktu <strong style="color:var(--gold2)">16:35</strong> di Kendari.</span>
+          </div>
+        </div>
+        <div class="track-total">
+          <div class="track-total-item">
+            <div class="track-total-num">16:35</div>
+            <div class="track-total-label">Catatan<br>5.000 M</div>
+          </div>
+          <div class="track-total-item">
+            <div class="track-total-num">#1</div>
+            <div class="track-total-label">Jasmani<br>Se-Nusantara</div>
+          </div>
+          <div class="track-total-item">
+            <div class="track-total-num">2×</div>
+            <div class="track-total-label">Juara<br>Atletik</div>
+          </div>
         </div>
       </div>
     </div>
@@ -889,39 +2115,42 @@
 
   <!-- BAGIAN 6 — PSIKOLOGI -->
   <div class="section">
-    <p class="section-label">06 — Persiapan Psikologi</p>
+    <p class="section-label">06 — Persiapan Psikologi · D AJIKS AKADEMI</p>
     <h2 class="section-title">Psikologi tidak bisa dipoles.<br>Harus dibentuk.</h2>
     <div class="divider"></div>
+    <div class="dajiks-header">
+      <div class="dajiks-logo-mini"><picture><source srcset="logo-dajiks.webp" type="image/webp"><img src="logo-dajiks.jpg" alt="D AJIKS"></picture></div>
+      <div class="dajiks-header-text">
+        <h4>D AJIKS AKADEMI</h4>
+        <p>Psikologi & Pembentukan Karakter — dikelola sepenuhnya oleh D AJIKS · Psikolog & Konselor berpengalaman</p>
+      </div>
+    </div>
     <p class="section-desc">Ini bagian yang paling sering diabaikan, padahal banyak peserta gugur justru di tahap ini. Berbeda dengan akademik yang bisa dilatih, psikologi menuntut pembentukan karakter yang genuine.</p>
 
     <div class="table-wrap" style="margin-bottom:28px">
       <table>
         <thead>
           <tr>
-            <th>Jenis Tes</th>
+            <th>Komponen Psikologi POLRI</th>
             <th>Apa yang Diukur</th>
+            <th>Format</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Tes Inteligensi</td>
-            <td>Kemampuan berpikir logis, numerik, verbal — kecepatan dan ketepatan</td>
+            <td>Kecerdasan</td>
+            <td>Kemampuan berpikir logis, numerik, verbal — kecepatan dan ketepatan menjawab soal</td>
+            <td><span class="badge badge-high">CAT Komputer</span></td>
           </tr>
           <tr>
-            <td>Tes Kepribadian</td>
-            <td>Kestabilan emosi, integritas, dominansi, cara menghadapi tekanan</td>
+            <td>Kecermatan</td>
+            <td>Ketelitian, fokus, dan konsistensi dalam memproses informasi secara cepat dan akurat</td>
+            <td><span class="badge badge-high">CAT Komputer</span></td>
           </tr>
           <tr>
-            <td>Tes Proyektif</td>
-            <td>Gambar orang, pohon, HTP — menggali karakter bawah sadar</td>
-          </tr>
-          <tr>
-            <td>Tes Sikap & Nilai</td>
-            <td>Kejujuran, kedisiplinan, pro-sosial, orientasi pada tugas</td>
-          </tr>
-          <tr>
-            <td>Wawancara Psikologi</td>
-            <td>Konsistensi jawaban, kejujuran, motivasi bergabung POLRI</td>
+            <td>Kepribadian</td>
+            <td>Kestabilan emosi, integritas, dominansi, orientasi tugas, dan cara menghadapi tekanan</td>
+            <td><span class="badge badge-high">CAT Komputer</span></td>
           </tr>
         </tbody>
       </table>
@@ -929,24 +2158,22 @@
 
     <div class="card-grid">
       <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>Kecerdasan</h3>
+        <p>Latihan soal logika, numerik, dan verbal bertimed. Simulasi CAT berkala dengan tracking akurasi dan kecepatan per sub-aspek.</p>
+        <span class="tag">Logis · Numerik · Verbal</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Kecermatan</h3>
+        <p>Drill soal ketelitian intensif: pola simbol, tabel, dan data visual. Fokus pada konsistensi dan zero-error di bawah tekanan waktu.</p>
+        <span class="tag">Akurasi · Fokus · Kecepatan</span>
+      </div>
+      <div class="card">
         <div class="card-icon">🪞</div>
-        <h3>Bulan 1 — Kenali Diri</h3>
-        <p>Baseline kepribadian, nilai hidup, identifikasi kekuatan & kelemahan karakter. Bukan menilai — tapi memetakan.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📝</div>
-        <h3>Bulan 2 — Latihan Psikotes</h3>
-        <p>Simulasi CAT psikologi, latihan soal inteligensi, proyektif dan kepribadian secara rutin dan terbimbing.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎤</div>
-        <h3>Bulan 3 — Narasi Personal</h3>
-        <p>Role-play wawancara, membangun konsistensi cerita personal yang jujur dan kuat. Latihan respon pertanyaan penggali.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💪</div>
-        <h3>Bulan 4+ — Mental Kuat</h3>
-        <p>Manajemen stres & kecemasan tes, teknik pernapasan, pengelolaan ekspektasi dan ketakutan gagal.</p>
+        <h3>Kepribadian</h3>
+        <p>Pembiasaan menjawab konsisten dan jujur. Pembentukan profil kepribadian yang selaras dengan nilai-nilai Polri — bukan manipulasi jawaban.</p>
+        <span class="tag">Karakter · Integritas · Emosi</span>
       </div>
     </div>
   </div>
@@ -954,7 +2181,7 @@
   <!-- BAGIAN 7 — TIMELINE -->
   <div class="section">
     <p class="section-label">07 — Roadmap Belajar</p>
-    <h2 class="section-title">Enam bulan yang<br>terstruktur dan terukur.</h2>
+    <h2 class="section-title">Lima bulan yang<br>terstruktur dan terukur.</h2>
     <div class="divider"></div>
     <div class="timeline-grid">
       <div class="tl-item" style="border-radius:16px 0 0 16px;">
@@ -980,7 +2207,7 @@
         </ul>
       </div>
       <div class="tl-item" style="border-radius:0 16px 16px 0; border-right:1px solid var(--border);">
-        <div class="tl-month">Bulan 5–6</div>
+        <div class="tl-month">Bulan 5</div>
         <div class="tl-title">Final Polish</div>
         <ul class="tl-list">
           <li>Review titik lemah individual</li>
@@ -1076,134 +2303,263 @@
     <p class="section-label">10 — Struktur Tim</p>
     <h2 class="section-title">Tim yang proporsional<br>dan fungsional.</h2>
     <div class="divider"></div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🏛️</div>
-        <h3>Program Director</h3>
-        <p>Penanggung jawab keseluruhan program. Mengawasi kurikulum, output, dan standar kualitas.</p>
-        <span class="tag">1 orang</span>
+
+    <!-- Tim D AJIKS -->
+    <div class="team-group">
+      <div class="team-group-header">
+        <div class="team-group-logo"><picture><source srcset="logo-dajiks.webp" type="image/webp"><img src="logo-dajiks.jpg" alt="D AJIKS" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></picture></div>
+        <div>
+          <div class="team-group-name dajiks-color">D AJIKS AKADEMI</div>
+          <div style="font-size:12px;color:var(--sub);margin-top:2px;">Akademik · Psikologi · Administrasi</div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <h3>Koordinator Akademik</h3>
-        <p>Mengelola jadwal & materi. Membawahi instruktur mapel dan memastikan kurikulum berjalan sesuai target.</p>
-        <span class="tag">1 + 3–5 instruktur</span>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏛️</div>
+          <h3>Program Director</h3>
+          <p>Penanggung jawab keseluruhan program kolaborasi. Mengawasi kurikulum, output, dan koordinasi antar entitas.</p>
+          <span class="tag">1 orang</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Koordinator Akademik</h3>
+          <p>Mengelola jadwal & materi. Membawahi instruktur mapel dan memastikan kurikulum berjalan sesuai target.</p>
+          <span class="tag">1 + 3–5 instruktur</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>Psikolog / Konselor</h3>
+          <p>Mengelola program psikologi dan mental coaching. Minimal 1 sesi intensif per minggu.</p>
+          <span class="tag">Min. 1 orang</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Admin & Monitoring</h3>
+          <p>Tracking progress peserta, komunikasi dengan orang tua, laporan berkala, dan administrasi operasional.</p>
+          <span class="tag">1–2 orang</span>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🏃</div>
-        <h3>Koordinator Jasmani</h3>
-        <p>Merancang periodisasi latihan, memantau progress fisik individual, dan menangani pencegahan cedera.</p>
-        <span class="tag">1 + 1–2 pelatih</span>
+    </div>
+
+    <!-- Tim RAHESA BRASATYA -->
+    <div class="team-group">
+      <div class="team-group-header">
+        <div class="team-group-logo"><picture><source srcset="logo-rahesa.webp" type="image/webp"><img src="logo-rahesa.jpg" alt="Rahesa Brasatya" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></picture></div>
+        <div>
+          <div class="team-group-name rahesa-color">BIMBEL RAHESA BRASATYA</div>
+          <div style="font-size:12px;color:var(--sub);margin-top:2px;">Jasmani · Kesamaptaan · Fisik</div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>Psikolog / Konselor</h3>
-        <p>Mengelola program psikologi dan mental coaching. Bisa mitra eksternal dengan minimal 1 sesi intensif per minggu.</p>
-        <span class="tag">Min. 1 orang</span>
-      </div>
-      <div class="card">
-        <div class="card-icon">📊</div>
-        <h3>Admin & Monitoring</h3>
-        <p>Tracking progress peserta, komunikasi dengan orang tua, laporan berkala, dan administrasi operasional.</p>
-        <span class="tag">1–2 orang</span>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏃</div>
+          <h3>Koordinator Jasmani</h3>
+          <p>Merancang periodisasi latihan, memantau progress fisik individual, dan menangani pencegahan cedera.</p>
+          <span class="tag">1 + 1–2 pelatih</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">💪</div>
+          <h3>Pelatih Kesamaptaan</h3>
+          <p>Memimpin sesi latihan fisik harian. Spesialisasi lari, pull-up, push-up, sit-up, dan renang sesuai standar POLRI.</p>
+          <span class="tag">1–2 orang</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏅</div>
+          <h3>Mental & Motivator</h3>
+          <p>Pendampingan mental juara — membangun daya tahan psikis selama latihan fisik berat dan simulasi kesamaptaan penuh.</p>
+          <span class="tag">1 orang</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- BAGIAN 11 — PLATFORM -->
+  <!-- FOUNDER -->
+  <div class="founder-section">
+    <div class="founder-photo-wrap">
+      <picture><source srcset="foto-founder.webp" type="image/webp"><img src="foto-founder.jpg" alt="Gusti Putu Yuda Wirashana"></picture>
+    </div>
+    <div class="founder-info">
+      <span class="founder-tag">Founder &amp; Lead Instructor</span>
+      <div class="founder-name">Gusti Putu Yuda Wirashana</div>
+      <div style="font-size:13px;color:var(--gold2);font-weight:600;margin-bottom:6px;letter-spacing:0.5px">S.Tr.IP</div>
+      <div class="founder-title">Lulusan IPDN 2024 · Mentor Utama Psikologi &amp; Strategi Seleksi</div>
+      <div class="founder-tracks">
+        <div class="founder-track">
+          <div class="founder-track-icon">🎓</div>
+          <span>Lulusan Institut Pemerintahan Dalam Negeri (IPDN) angkatan 2024 — kampus kader aparatur pemerintah paling kompetitif di Indonesia.</span>
+        </div>
+        <div class="founder-track">
+          <div class="founder-track-icon">🏆</div>
+          <span>Membantu <strong style="color:var(--gold2)">2 peserta lulus seleksi POLRI</strong> saat masih aktif menjalani pendidikan di IPDN — sebelum dirinya sendiri diwisuda.</span>
+        </div>
+        <div class="founder-track">
+          <div class="founder-track-icon">⭐</div>
+          <span>Tahun 2025, membimbing <strong style="color:var(--gold2)">1 peserta berhasil diterima di IPDN</strong> — membuktikan rekam jejak lintas lembaga seleksi kedinasan.</span>
+        </div>
+        <div class="founder-track">
+          <div class="founder-track-icon">🧠</div>
+          <span>Fokus utama: persiapan psikologi, strategi menghadapi CAT, dan pembentukan mental juara berbasis pengalaman nyata dari dalam sistem kedinasan.</span>
+        </div>
+      </div>
+      <div class="founder-quote">
+        "Saya pernah ada di posisi yang sama — mempersiapkan diri untuk seleksi dengan segala ketidakpastiannya.
+        Justru itu yang membuat saya tahu persis apa yang benar-benar dibutuhkan, bukan sekadar teori."
+      </div>
+    </div>
+  </div>
+
+  <!-- MENTOR AKADEMIK -->
   <div class="section">
-    <p class="section-label">11 — Platform & Tools</p>
-    <h2 class="section-title">Ekosistem digital yang<br>mendukung, bukan menggantikan.</h2>
+    <p class="section-label">Mentor Akademik Utama</p>
+    <h2 class="section-title">Dibalik angka kelulusan,<br>ada nama yang membuktikan.</h2>
     <div class="divider"></div>
-    <p class="section-desc">Platform eksternal digunakan sebagai suplemen belajar mandiri. Tools internal dibangun untuk monitoring dan komunikasi yang lebih personal.</p>
-
-    <div style="margin-bottom:20px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Platform Referensi</div>
-    <div class="platform-list" style="margin-bottom:32px">
-      <div class="platform-item">
-        <div class="platform-icon">🎯</div>
-        <div class="platform-info">
-          <h4>TacticalInPolice</h4>
-          <p>Bank soal CAT & kalkulator nilai jasmani. Dipakai untuk tryout tambahan mandiri peserta.</p>
-        </div>
+    <div class="mentor-card">
+      <div class="mentor-photo-wrap">
+        <picture><source srcset="foto-mentor-badrun-2026.webp" type="image/webp"><img src="foto-mentor-badrun-2026.jpg" alt="Mr. Badrun" style="object-position:center 15%"></picture>
       </div>
-      <div class="platform-item">
-        <div class="platform-icon">📖</div>
-        <div class="platform-info">
-          <h4>JadiCasis / Ruang Casis</h4>
-          <p>Materi video & psikotes online. Dipakai untuk belajar mandiri di luar jam kelas.</p>
+      <div class="mentor-info">
+        <span class="mentor-role-tag">Mentor Akademik Utama · D AJIKS</span>
+        <div class="mentor-name">Badrun Iju</div>
+        <div class="mentor-degree">S.Pd., Gr., M.Pd.</div>
+        <div class="track-years">
+          <div class="track-year-row">
+            <span class="track-year-label">2020</span>
+            <span class="track-badge-polri">POLRI ×3</span>
+            <span class="track-badge-ipdn">IPDN ×1</span>
+          </div>
+          <div class="track-year-row">
+            <span class="track-year-label">2021</span>
+            <span class="track-badge-polri">POLRI ×3</span>
+            <span class="track-badge-ipdn">IPDN ×2</span>
+          </div>
+          <div class="track-year-row">
+            <span class="track-year-label">2022</span>
+            <span class="track-badge-polri">POLRI ×3</span>
+            <span class="track-badge-ipdn">IPDN ×1</span>
+          </div>
+          <div class="track-year-row">
+            <span class="track-year-label">2023</span>
+            <span class="track-badge-ipdn">IPDN ×1</span>
+          </div>
+          <div class="track-year-row">
+            <span class="track-year-label">2024</span>
+            <span class="track-badge-ipdn">IPDN ×1</span>
+          </div>
+          <div class="track-year-row">
+            <span class="track-year-label">2025</span>
+            <span class="track-badge-ipdn">IPDN ×6</span>
+          </div>
         </div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">📱</div>
-        <div class="platform-info">
-          <h4>Apta School</h4>
-          <p>Paket online fleksibel dan tryout murah. Suplemen antara sesi kelas offline.</p>
-        </div>
-      </div>
-      <div class="platform-item">
-        <div class="platform-icon">🏫</div>
-        <div class="platform-info">
-          <h4>Taruna Persada</h4>
-          <p>Benchmark model hybrid offline-online. Referensi standar program nasional.</p>
+        <div class="track-total">
+          <div class="track-total-item">
+            <div class="track-total-num">9</div>
+            <div class="track-total-label">Lulus<br>POLRI</div>
+          </div>
+          <div class="track-total-item">
+            <div class="track-total-num">12</div>
+            <div class="track-total-label">Lulus<br>IPDN</div>
+          </div>
+          <div class="track-total-item">
+            <div class="track-total-num">21</div>
+            <div class="track-total-label">Total<br>Kelulusan</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="margin-bottom:20px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Tools Internal D AJIKS AKADEMI</div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">📊</div>
-        <h3>Tracking Peserta</h3>
-        <p>Spreadsheet / Notion per peserta. Dashboard progress individual dan per angkatan. Update mingguan oleh instruktur.</p>
+    <!-- MENTOR BAHASA INGGRIS UTAMA — LAODE BILLY BONNY -->
+    <div class="mentor-card" style="margin-top:20px">
+      <div class="mentor-photo-wrap">
+        <picture><source srcset="foto-mr-billy.webp" type="image/webp"><img src="foto-mr-billy.jpg" alt="Laode Billy Bonny" style="object-position:center 15%"></picture>
       </div>
-      <div class="card">
-        <div class="card-icon">💬</div>
-        <h3>Komunikasi</h3>
-        <p>WhatsApp Group per angkatan. Broadcast info & jadwal. Laporan PDF bulanan ke orang tua.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📄</div>
-        <h3>Konten Materi</h3>
-        <p>Modul cetak ringkas per mata pelajaran. Video recap pendek. Bank soal update tiap siklus.</p>
+      <div class="mentor-info">
+        <span class="mentor-role-tag">Mentor Bahasa Inggris Utama · D AJIKS</span>
+        <div class="mentor-name">Laode Billy Bonny</div>
+        <div class="mentor-degree">S.Pd., M.Pd.</div>
+        <div class="founder-tracks">
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🎓</div>
+            <span>S1 Bahasa Inggris <strong style="color:var(--gold2)">Universitas Haluoleo</strong> &amp; S2 Bahasa Inggris <strong style="color:var(--gold2)">Universitas Negeri Makassar</strong>.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">⭐</div>
+            <span><strong style="color:var(--gold2)">Mentor utama Bahasa Inggris</strong> di beberapa lembaga pembelajaran persiapan Kedinasan/Instansi.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🗣️</div>
+            <span>Instruktur Bahasa Inggris di <strong style="color:var(--gold2)">Progress English Center</strong>.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">🏆</div>
+            <span>Pendamping <strong style="color:var(--gold2)">National School Debating Competition (NSDC)</strong> tingkat Nasional.</span>
+          </div>
+          <div class="founder-track" style="color:rgba(255,255,255,0.82)">
+            <div class="founder-track-icon">📚</div>
+            <span>Pengurus <strong style="color:var(--gold2)">MGMP Bahasa Inggris</strong> Provinsi Sulawesi Tenggara.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- BAGIAN 12 — KPI -->
+  <!-- BAGIAN 11 — PAKET & INVESTASI -->
   <div class="section">
-    <p class="section-label">12 — Ukuran Keberhasilan</p>
-    <h2 class="section-title">Yang tidak terukur<br>tidak akan terkelola.</h2>
+    <p class="section-label">11 — Paket & Investasi</p>
+    <h2 class="section-title">Satu paket lengkap.<br>5 bulan intens, tanpa kompromi.</h2>
     <div class="divider"></div>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-num">90%</div>
-        <div class="kpi-label">Tingkat kehadiran per angkatan</div>
+    <p class="section-desc">Akademik, psikologi, dan jasmani dalam satu program terpadu — dibimbing tim berpengalaman dengan rekam jejak nyata.</p>
+
+    <div class="price-wrap">
+      <div class="price-normal">
+        <div class="price-tag">Harga Program</div>
+        <div class="price-amount">Rp 9.249.999</div>
+        <div class="price-note">Paket lengkap 5 Bulan Intens · Akademik + Psikologi + Jasmani</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-num">75+</div>
-        <div class="kpi-label">Nilai rata-rata CAT simulasi akhir</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-num">70+</div>
-        <div class="kpi-label">Nilai jasmani simulasi (kategori Baik)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-num">80%</div>
-        <div class="kpi-label">Lulus simulasi psikotes internal</div>
-      </div>
-      <div class="kpi-card accent">
-        <div class="kpi-num">70%</div>
-        <div class="kpi-label">Angka lolos seleksi resmi peserta aktif</div>
+
+      <div class="price-earlybird">
+        <span class="price-badge-urgent">🔥 Khusus 6 Pendaftar Pertama</span>
+        <div class="price-strike">Rp 9.249.999</div>
+        <div class="price-discount">− Diskon Rp 499.999</div>
+        <div class="price-hero">Rp 8.749.999</div>
+        <div class="price-hero-label">Harga early bird — hanya untuk 6 kursi pertama</div>
+        <a class="cat-sim-btn" href="https://wa.me/6285299394360?text=Halo%2C%20saya%20tertarik%20mendaftar%20program%20D%20AJIKS%20%C3%97%20RAHESA%20BRASATYA.%20Mohon%20informasinya." target="_blank" rel="noopener">Amankan Kursi Anda <span class="cat-arrow">→</span></a>
       </div>
     </div>
   </div>
+
+  <!-- BAGIAN 12 — HASIL REVIU BIMBEL -->
+  <div class="section">
+    <p class="section-label">12 — Hasil Reviu Bimbel</p>
+    <h2 class="section-title">Bukan klaim kami.<br>Penilaian peserta.</h2>
+    <div class="divider"></div>
+
+    <!-- Ringkasan rating -->
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
+      <div style="font-family:'DM Serif Display',serif;font-size:40px;color:var(--gold);line-height:1;">4,9</div>
+      <div>
+        <div style="color:var(--gold2);font-size:18px;letter-spacing:2px;">★★★★★</div>
+        <div style="font-size:13px;color:var(--sub);">dari <strong>28 ulasan</strong> peserta · 26 memberi nilai sempurna</div>
+      </div>
+    </div>
+
+    <!-- Dinding ulasan mengalir -->
+    <h3 style="font-size:14px;color:var(--navy);margin-bottom:12px;">💬 Apa kata peserta</h3>
+    <div class="review-wall in-section" style="margin-bottom:20px;">
+      <div class="review-wall-track"></div>
+    </div>
+
+  </div>
+
+
+
 
   <!-- PENUTUP -->
   <div class="section">
     <div class="quote-block">
       Program terbaik bukan yang paling ramai atau paling mahal. Tapi yang <strong>paling jujur pada prosesnya</strong> —
       yang tahu persis di mana titik lemah tiap peserta, dan punya sistem nyata untuk mengangkatnya.
-      D AJIKS AKADEMI dibangun di atas prinsip itu.
+      Kolaborasi <strong>D AJIKS AKADEMI × BIMBEL RAHESA BRASATYA</strong> dibangun di atas prinsip itu:
+      cerdas di kelas, kuat di lapangan, tangguh dalam karakter.
     </div>
   </div>
 
@@ -1211,9 +2567,112 @@
 
 <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
 <div class="footer">
-  <strong>D AJIKS AKADEMI</strong> &nbsp;·&nbsp; Blueprint Program Seleksi POLRI<br>
-  <span style="font-size:12px;margin-top:6px;display:block">Dokumen Internal · Versi 1.0 · Juni 2026 · Untuk keperluan operasional dan presentasi</span>
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px;">
+    <picture><source srcset="logo-dajiks.webp" type="image/webp"><img src="logo-dajiks.jpg" alt="D AJIKS" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,153,58,0.4);"></picture>
+    <span style="color:var(--gold2);font-size:18px;font-weight:800;">×</span>
+    <picture><source srcset="logo-rahesa.webp" type="image/webp"><img src="logo-rahesa.jpg" alt="Rahesa Brasatya" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,153,58,0.4);"></picture>
+  </div>
+  <strong>D AJIKS AKADEMI</strong> &nbsp;×&nbsp; <strong>BIMBEL RAHESA BRASATYA</strong><br>
+  <span style="font-size:12px;margin-top:4px;display:block;opacity:0.7">Kolaborasi Program Seleksi POLRI Terpadu · Kendari</span>
+  <div style="margin-top:14px;">
+    <a href="https://wa.me/6285299394360?text=Halo%2C%20saya%20tertarik%20mendaftar%20program%20D%20AJIKS%20%C3%97%20RAHESA%20BRASATYA.%20Mohon%20informasinya." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:999px;text-decoration:none;">💬 Hubungi via WhatsApp</a>
+  </div>
+  <span style="font-size:11px;margin-top:14px;display:block;opacity:0.6">© 2026 D AJIKS Akademi × Rahesa Brasatya · Program Seleksi POLRI Terpadu</span>
 </div>
 
+
+
+<script>
+  // Ulasan asli peserta (Google Form) — email dimask sebagian utk privasi
+  const reviews = [
+    { name: 'Dilah F.',       email: 'dilah•••@gmail.com',       stars: 4, color: '#1A73E8',
+      quote: 'Puas banget belajar di sini! Tentornya peduli, sering kasih motivasi dan banyak tips & trik jitu yang langsung bisa dipraktikkan. Suasana belajarnya seru, tidak terasa monoton, dan membuat saya makin giat belajar setiap harinya.' },
+    { name: 'Didan Cheza',    email: 'didan•••@gmail.com',        stars: 5, color: '#EA4335',
+      quote: 'Terima kasih D Ajiks Akademi! Sebelumnya saya masih penuh keraguan, tapi banyaknya motivasi dan suasana yang penuh semangat di bimbel ini membuat saya jauh lebih yakin dan mantap menghadapi tes tahun ini.' },
+    { name: 'Putu Cinta A.',  email: 'putucinta•••@gmail.com',    stars: 5, color: '#34A853',
+      quote: 'Keunggulan D Ajiks Akademi terletak pada materi ajarnya yang mendalam — banyak hal yang belum pernah saya pelajari di tempat lain, namun di sini disampaikan dengan konsisten dan terstruktur. Latihan soal SKD-nya pun sangat memuaskan dan relevan.' },
+    { name: 'Rawa J.',        email: 'rawa•••@gmail.com',         stars: 5, color: '#FBBC05',
+      quote: 'Salah satu tempat yang memberikan pengalaman terbaik dalam hidup saya. Di sini saya sadar — tidak ada orang bodoh, yang ada hanya rasa malas dan cara belajar yang kurang tepat. D Ajiks membuka mata saya dan memberi metode belajar yang benar-benar mengubah segalanya.' },
+    { name: 'Ehud G.',        email: 'ehud•••@icloud.com',        stars: 5, color: '#A142F4',
+      quote: 'Sangat senang bergabung di D Ajiks Akademi! Kemampuan akademik saya meningkat jauh lebih pesat dibanding sebelumnya. Orang-orang di sini ramah dan suasana belajarnya mendukung setiap peserta untuk terus berkembang tanpa tekanan berlebihan.' },
+    { name: 'Lingga M.',      email: 'lingga•••@gmail.com',       stars: 5, color: '#F4511E',
+      quote: 'D Ajiks Akademi tidak hanya mengajarkan teori secara instan — mereka membangun pemahaman dari fondasinya. Hal yang kita kira mudah ternyata bisa sangat kompleks dan luas, dan di sinilah keunggulan mereka: mengajarkan dengan kualitas yang sangat tinggi dari akar permasalahannya.' },
+    { name: 'Andry K.',       email: 'andry•••@gmail.com',        stars: 5, color: '#0B8043',
+      quote: 'Sangat senang bergabung! Trik-trik cepat dari Pak Badrun dan bimbingan penuh semangat dari Kak Yuda membuat setiap sesi belajar terasa bermakna. Di bimbel ini saya bisa semakin berkembang dan benar-benar siap mengikuti seleksi penerimaan Praja IPDN.' },
+    { name: 'Zirah Y.',       email: 'zirah•••@gmail.com',        stars: 5, color: '#3949AB',
+      quote: 'Terima kasih D Ajiks Akademi! Meski awalnya metode belajarnya terasa asing, lama-kelamaan saya semakin terbiasa dan berkembang. Bimbel ini mengajarkan banyak hal bermanfaat dengan cara yang keren, efektif, dan tidak pernah membosankan.' },
+    { name: 'Muhammad D.',    email: 'muhammadd•••@gmail.com',    stars: 5, color: '#00ACC1',
+      quote: 'Dengan hadirnya D Ajiks Akademi, saya sangat bersyukur pernah bergabung. Awalnya masih canggung karena belum kenal siapapun, tapi lama-kelamaan saya mendapat teman yang asik dan mentor yang luar biasa baik. Banyak pelajaran yang membimbing saya menjadi pribadi yang lebih baik.' },
+    { name: 'Dhea Fiqah',     email: 'dhea•••@gmail.com',         stars: 5, color: '#E67C00',
+      quote: 'Seru banget, asik, dan pastinya worth it! Di sini semua peserta dirangkul tanpa dibeda-bedakan. Materi disampaikan dengan cara yang mudah dipahami, waktu belajarnya lebih panjang dari bimbel lain, dan harganya benar-benar sepadan dengan yang saya dapatkan.' },
+    { name: 'Ni Luh G.',      email: 'niluh•••@gmail.com',        stars: 4, color: '#1A73E8',
+      quote: 'Fasilitas belajarnya bagus dan pengajarnya mantap! TWK disampaikan dengan cara yang mudah dipahami. Secara keseluruhan saya puas dengan kualitas bimbingan di D Ajiks Akademi — tempat yang tepat untuk mempersiapkan diri menghadapi seleksi.' },
+    { name: 'Putu Dika R.',   email: 'putudika•••@gmail.com',     stars: 5, color: '#EA4335',
+      quote: 'Bergabung dengan D Ajiks Akademi adalah salah satu keputusan terbaik dalam mempersiapkan masa depan saya. Pengajarnya ramah, materi disampaikan dengan jelas, dan sejak awal saya merasa lebih termotivasi untuk meraih cita-cita. Keputusan yang tidak pernah saya sesali.' },
+    { name: 'Heriawan E.',    email: 'heriawan•••@gmail.com',     stars: 5, color: '#34A853',
+      quote: 'Saya beruntung pernah belajar di D Ajiks Akademi. Di sini bukan hanya tempat belajar — saya mendapat keluarga baru yang mengajarkan nilai kehidupan. Alhamdulillah, melalui bimbel ini saya kini lolos menjadi abdi negara dan berdinas dengan baik berkat nasehat Ajik dan Pak Badrun. 🔥' },
+    { name: 'Gusti T.',       email: 'gustit•••@gmail.com',       stars: 5, color: '#FBBC05',
+      quote: 'Mantap, terbaik, dan profesional! Pengalaman belajar di D Ajiks Akademi luar biasa keren. Tidak ada kata lain yang bisa menggambarkan betapa baiknya bimbel ini dalam mempersiapkan pesertanya untuk menghadapi seleksi dengan penuh percaya diri.' },
+    { name: 'Aurelia T.',     email: 'aurelia•••@gmail.com',      stars: 5, color: '#A142F4',
+      quote: 'Kehadiran D Ajiks Akademi benar-benar mengubah cara saya belajar. Tempatnya nyaman, suasananya menyenangkan, dan penjelasan materinya mudah dipahami dengan banyak tips & trik praktis. Saya merasa lebih semangat, lebih yakin, dan lebih terarah dalam meraih cita-cita.' },
+    { name: 'Afs Y.',         email: 'afs•••@gmail.com',          stars: 5, color: '#F4511E',
+      quote: 'D Ajiks Akademi membantu saya dalam segala aspek — dari yang awalnya merasa bukan apa-apa, kini saya percaya diri mengerjakan tes akademik maupun fisik. Yang paling membahagiakan: bimbel ini mendampingi saya dari pendaftaran, hingga lulus, hingga kini berdinas. Luar biasa.' },
+    { name: 'Aulia M.',       email: 'aulia•••@icloud.com',       stars: 5, color: '#0B8043',
+      quote: 'Sangat puas dengan pembelajaran di D Ajiks Akademi! Tentornya baik dan penuh perhatian. Saya sangat bersyukur bisa belajar di sini — tempat yang benar-benar mempersiapkan peserta tidak hanya secara akademik, tapi juga mental dan fisik.' },
+    { name: 'Ika Z.',         email: 'ika•••@gmail.com',          stars: 5, color: '#3949AB',
+      quote: 'Terima kasih atas bimbingan yang diberikan selama proses belajar hingga tahap akhir tes. Suasana belajarnya humanis dan kekeluargaan, latihan fisiknya pun sangat membantu. Tanpa hadirnya Ajiks Akademi, saya tidak bisa menjadi seperti saat ini. Bimbel ini bukan hanya mengajar — mereka mendampingi.' },
+    { name: 'Anas M.',        email: 'anas•••@gmail.com',         stars: 5, color: '#00ACC1',
+      quote: 'Dengan hadirnya D Ajiks Akademi, saya merasa sangat diayomi dan diarahkan dengan tulus. Semoga bimbel ini terus menjadi harapan baru bagi anak-anak muda Indonesia sebagai pendamping terpercaya dalam menggapai kesuksesan dan meraih karier sebagai abdi negara.' },
+    { name: 'Nathaniel O.',   email: 'nathaniel•••@gmail.com',    stars: 5, color: '#E67C00',
+      quote: 'Senang rasanya seperti menemukan berlian di antara banyaknya batu kerikil. Awalnya saya takut bergabung, tapi ternyata di D Ajiks semua dipandu dengan terstruktur dan penuh kesungguhan. Tidak ada bimbel lain yang saya temukan seserius dan selengkap ini dalam mempersiapkan calon peserta seleksi.' },
+    { name: 'Dwi A.',         email: 'dwi•••@gmail.com',          stars: 5, color: '#1A73E8',
+      quote: 'D Ajiks Akademi memberikan harapan nyata yang menjanjikan bagi kesuksesan saya dan teman-teman. Metode belajarnya asik, modern, dan interaktif — membuat kami bisa dengan cepat memahami semua materi yang diberikan. Saya bangga bisa menjadi bagian dari bimbel terbaik ini.' },
+    { name: 'Putu Nagita',    email: 'putun•••@gmail.com',        stars: 5, color: '#EA4335',
+      quote: 'Sukses butuh usaha keras, dan salah satu langkah terbaik yang bisa kamu ambil adalah bimbel di D Ajiks Akademi. Di sini saya dianggap seperti anak sendiri — lingkungannya hangat, mentor-mentornya penuh dedikasi, dan programnya dirancang benar-benar untuk membawa peserta menuju keberhasilan.' },
+    { name: 'Inna N.',        email: 'inna•••@gmail.com',         stars: 5, color: '#34A853',
+      quote: 'Kehadiran D Ajiks Akademi membuat saya lebih termotivasi dan siap menghadapi setiap proses menuju kesuksesan. Cara belajarnya lebih fokus dan praktis — membuat saya lebih mudah dan cepat menyerap setiap materi. Meski awalnya menantang, bimbel ini mengubah saya menjadi pribadi yang lebih siap.' },
+    { name: 'Gus Med',        email: 'gusmed•••@gmail.com',       stars: 5, color: '#FBBC05',
+      quote: 'Mentor terbaik dengan suasana belajar yang nyaman! D Ajiks Akademi selalu menghadirkan inovasi terbaik dalam pembelajaran — dari level mudah hingga tantangan yang lebih tinggi, semuanya dikemas bertahap sehingga peserta bisa terus berkembang tanpa merasa kewalahan.' },
+    { name: 'Dimas A.',       email: 'dimas•••@gmail.com',        stars: 5, color: '#A142F4',
+      quote: 'Singkat, padat, dan jelas — itulah yang paling saya suka dari D Ajiks Akademi. Materi disampaikan langsung ke poin terpenting tanpa banyak basa-basi, namun tetap mendalam dan sangat bermanfaat. Efisiensi waktu belajar di sini benar-benar terasa berbeda dari bimbel lainnya.' },
+    { name: 'Ardiko S.',      email: 'ardiko•••@gmail.com',       stars: 5, color: '#F4511E',
+      quote: 'Belajar di D Ajiks Akademi membuat saya terus terpacu untuk berlatih dan menjadi lebih baik dari hari ke hari. Suasana kompetensinya positif dan konstruktif — semua peserta saling menyemangati, bukan bersaing secara negatif. Energi belajar di sini benar-benar luar biasa.' },
+    { name: 'Dek Putra D.',   email: 'dekputra•••@gmail.com',     stars: 5, color: '#0B8043',
+      quote: 'Sukses sejati tak bisa didapatkan dengan cara instan — ada hal yang harus diperjuangkan dan dikorbankan. Di D Ajiks Akademi, saya belajar bahwa proses itulah yang membentuk kita. Setiap latihan, setiap sesi, adalah investasi nyata untuk masa depan yang lebih cerah.' },
+    { name: 'Muhammad A.',    email: 'muhammada•••@gmail.com',    stars: 5, color: '#3949AB',
+      quote: 'Sangat membantu saya dalam menggapai cita-cita! Dilatih oleh mentor-mentor profesional membuat saya merasa benar-benar dipersiapkan secara matang. D Ajiks Akademi adalah tempat yang tepat bagi siapa saja yang serius ingin lolos seleksi dan mengabdi pada negeri.' },
+  ];
+
+  (function () {
+   try {
+    function esc(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+    function stars(n) {
+      return '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n);
+    }
+    function cardHTML(r) {
+      return '<div class="rw-card">' +
+        '<div class="rw-top">' +
+          '<div class="rw-avatar" style="background:' + r.color + '">' + esc(r.name.charAt(0)) + '</div>' +
+          '<div class="rw-id">' +
+            '<div class="rw-name">' + esc(r.name) + '</div>' +
+            '<div class="rw-email">' + esc(r.email) + '</div>' +
+          '</div>' +
+          '<div class="rw-stars">' + stars(r.stars) + '</div>' +
+        '</div>' +
+        '<div class="rw-quote">“' + esc(r.quote) + '”</div>' +
+      '</div>';
+    }
+    // Duplikasi daftar 2× agar animasi translateY(-50%) loop mulus
+    const listHTML = reviews.map(cardHTML).join('');
+    document.querySelectorAll('.review-wall-track').forEach(function (track) {
+      track.innerHTML = listHTML + listHTML;
+    });
+   } catch (e) {
+     if (window.console && console.warn) console.warn('Review wall gagal dimuat:', e);
+   }
+  })();
+</script>
 </body>
 </html>
